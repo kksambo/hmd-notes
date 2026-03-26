@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>HCI401T | Interaction Design – Complete Notes (Ch 1-7)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1a2c3e;
+      line-height: 1.5;
+    }
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 390px;
+      background: #ffffff;
+      border-right: 1px solid #e9edf2;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      z-index: 100;
+      overflow: hidden;
+      box-shadow: 1px 0 12px rgba(0, 0, 0, 0.02);
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar-topics-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 12px 20px 12px;
+      scrollbar-width: thin;
+    }
+
+    .sidebar-topics-container::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar-topics-container::-webkit-scrollbar-track {
+      background: #edf2f7;
+      border-radius: 10px;
+    }
+
+    .sidebar-topics-container::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+
+    .sidebar-header {
+      padding: 28px 24px 16px 24px;
+      border-bottom: 1px solid #eef2f6;
+      flex-shrink: 0;
+    }
+
+    .sidebar-header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #0f2b3b;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-header p {
+      font-size: 0.8rem;
+      color: #5b7c93;
+      font-weight: 400;
+    }
+
+    .chapter-group {
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    .chapter-heading {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      color: #6c8ea0;
+      padding: 8px 16px 4px 16px;
+      margin-top: 8px;
+      background: #fafcfd;
+    }
+
+    .topic-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .topic-item {
+      padding: 7px 16px 7px 32px;
+      margin: 1px 0;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 470;
+      color: #2c4b66;
+      cursor: pointer;
+      transition: all 0.2s;
+      line-height: 1.4;
+      border: 1px solid transparent;
+    }
+
+    .topic-item:hover {
+      background: #f0f4f9;
+      color: #0f2b3b;
+      border-color: #e2e8f0;
+    }
+
+    .topic-item.active {
+      background: #eef2ff;
+      color: #1e4a76;
+      font-weight: 500;
+      border-left: 3px solid #2c7da0;
+      border-radius: 8px;
+      background: #f8fafd;
+      border-color: #dce5ec;
+    }
+
+    .footer-note-sidebar {
+      padding: 16px 20px 20px 20px;
+      font-size: 0.7rem;
+      color: #819eb0;
+      border-top: 1px solid #eef2f6;
+      text-align: center;
+      flex-shrink: 0;
+      background: white;
+    }
+
+    .main-content {
+      flex: 1;
+      background: #fbfdff;
+      overflow-y: auto;
+      padding: 40px 48px;
+    }
+
+    .note-card {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2f8;
+    }
+
+    .note-header {
+      padding: 32px 36px 20px 36px;
+      border-bottom: 1px solid #eff3f8;
+    }
+
+    .note-header h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #1f4868;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .note-content {
+      padding: 28px 36px 44px 36px;
+    }
+
+    .note-content pre {
+      font-family: 'Inter', ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+      background: #fafcff;
+      padding: 24px 28px;
+      border-radius: 24px;
+      font-size: 0.94rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: #1e3b4f;
+      border: 1px solid #eaf0f5;
+      overflow-x: auto;
+    }
+
+    .mobile-header {
+      display: none;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      padding: 14px 20px;
+      align-items: center;
+      gap: 14px;
+      z-index: 200;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .hamburger {
+      background: #f1f4f9;
+      border: none;
+      font-size: 22px;
+      width: 42px;
+      height: 42px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #2c5a7a;
+    }
+
+    .mobile-header span {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1f4868;
+    }
+
+    .backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(2px);
+      z-index: 90;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.72rem;
+      color: #819eb0;
+      margin-top: 28px;
+      padding: 8px;
+    }
+
+    button {
+      background: none;
+      border: none;
+    }
+
+    @media (max-width: 780px) {
+      .mobile-header {
+        display: flex;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        transform: translateX(-100%);
+        z-index: 300;
+        box-shadow: 2px 0 28px rgba(0, 0, 0, 0.1);
+        background: white;
+        height: 100vh;
+        position: fixed;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .backdrop.show {
+        display: block;
+      }
+      .main-content {
+        padding: 20px 18px 40px 18px;
+      }
+      .note-header {
+        padding: 20px 20px 12px 20px;
+      }
+      .note-header h2 {
+        font-size: 1.45rem;
+      }
+      .note-content {
+        padding: 18px 20px 28px 20px;
+      }
+      .note-content pre {
+        padding: 16px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+  // ========== CHAPTER 1: WHAT IS INTERACTION DESIGN? ==========
+  const chapter1Topics = [
+    { id: "ch1_1", title: "1.1 What is Interaction Design?", content: `INTERACTION DESIGN (ID)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Definition (Sharp, Rogers, Preece, 2019):
+"Designing interactive products to support the way people communicate and interact in their everyday and working lives."
+
+Winograd (1997):
+"The design of spaces for human communication and interaction."
+
+Different Perspectives: User-centered design, Human-centered design, People-centered design, Customer experience design.
+
+Core: Optimize interactions so they match user activities, needs, and contexts.` },
+    { id: "ch1_2", title: "1.2 Good vs Bad Design & Digital Shift", content: `GOOD DESIGN: TiVo Remote — peanut shape, logical color-coded buttons, easy to locate.
+
+SMART TV DILEMMA: pecking, swiping, or voice control? Depends on context.
+
+DIGITAL TRANSFORMATION
+Benefits: faster, convenient, stored details, QR codes.
+Disadvantages: digital divide, privacy concerns, preference for human interaction.` },
+    { id: "ch1_3", title: "1.3 Goals of Interaction Design", content: `CORE GOALS:
+1. Develop usable products
+2. Involve people in design process
+3. Consider what people are good/bad at
+4. Consider what helps people do things currently
+5. Provide quality experiences
+6. Consider privacy concerns
+7. Listen to what people want
+8. Use people-centered techniques` },
+    { id: "ch1_4", title: "1.4 Multidisciplinary Teams & ID", content: `ID AS UMBRELLA TERM: UI design, software design, product design, UX design.
+
+Academic disciplines: Psychology, Social Sciences, Computing, Engineering, Ergonomics.
+Design practices: Graphic design, Product design, Industrial design.
+
+MULTIDISCIPLINARY TEAMS
+Benefits: More ideas and designs generated, diverse perspectives.
+Disadvantages: Communication barriers, different vocabularies.` },
+    { id: "ch1_5", title: "1.5 People-Centered Design & UX", content: `Don Norman: "We need to build joy, excitement, pleasure and fun, and yes, beauty to people's lives."
+
+HASSENZAHL'S UX MODEL
+• Pragmatic: simple, practical, goal achievement
+• Hedonic: evocative, stimulating, wellbeing
+
+ACCESSIBILITY: usable by people with disabilities.
+INCLUSIVENESS: accommodate widest range regardless of disability, age, income.` },
+    { id: "ch1_6", title: "1.6 Usability vs UX Goals", content: `USABILITY GOALS (Functional)
+Effective | Efficient | Safe | Good utility | Easy to learn | Easy to remember | Enjoyable
+
+UX GOALS (Emotional)
+Desirable: Satisfying, Fun, Engaging, Motivating, Rewarding, Flow
+Undesirable: Boring, Frustrating, Patronizing, Deceptive, Annoying` },
+    { id: "ch1_7", title: "1.7 Design Principles: Visibility & Feedback", content: `VISIBILITY: Make relevant parts obvious. Elevator card reader — solution: make card reader visible, auditory message.
+
+FEEDBACK: Sending info back about action: sound, highlighting, animation.` },
+    { id: "ch1_8", title: "1.8 Constraints & Consistency", content: `CONSTRAINTS: Restrict possible actions to prevent errors.
+
+CONSISTENCY: Internal (within app) vs External (across apps). Keypad inconsistency: phones (1,2,3 top) vs calculators (7,8,9 top).` },
+    { id: "ch1_9", title: "1.9 Affordance", content: `AFFORDANCE (Norman): Attribute that allows people to know how to use an object.
+
+DIGITAL = PERCEIVED AFFORDANCE: Learned conventions: button with shadow looks clickable.` },
+    { id: "ch1_10", title: "1.10 Key Takeaways", content: `CHAPTER 1 KEY POINTS:
+• ID supports how people communicate and interact
+• Quality UX = pragmatic + hedonic qualities
+• Design principles: visibility, feedback, constraints, consistency, affordance
+• Multidisciplinary teams generate more ideas` }
+  ];
+
+  // ========== CHAPTER 2: THE PROCESS OF INTERACTION DESIGN ==========
+  const chapter2Topics = [
+    { id: "ch2_1", title: "2.1 What is Involved in ID Process?", content: `INTERACTION DESIGN PROCESS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Focused on: discovering requirements, designing to fulfil requirements, producing prototypes, evaluating.
+
+Generating alternatives and choosing between them is central.
+
+Four approaches: User-centered design, Activity-centered design, Systems design, Genius design.
+
+THE DOUBLE DIAMOND: Discover → Define → Develop → Deliver` },
+    { id: "ch2_2", title: "2.2 Who to Involve & Importance of Users", content: `STAKEHOLDERS: Direct/indirect users, developers, executives, legislators.
+
+IMPORTANCE OF INVOLVING USERS
+Expectation Management: realistic expectations, no surprises, timely training.
+Ownership: users as active stakeholders → more acceptance.
+
+DEGREES OF INVOLVEMENT: design team member, small groups, crowdsourcing, participatory design, A/B testing.` },
+    { id: "ch2_3", title: "2.3 People-Centered Approach & Four Activities", content: `PEOPLE-CENTERED DESIGN PRINCIPLES
+1. Early focus on users and tasks
+2. Empirical measurement
+3. Iterative design
+
+FOUR BASIC ACTIVITIES
+1. Discovering requirements
+2. Designing alternatives
+3. Prototyping alternative designs
+4. Evaluating product and user experience throughout` },
+    { id: "ch2_4", title: "2.4 Lifecycle Models", content: `SIMPLE ID LIFECYCLE: Discover → Design → Prototype → Evaluate (iterative)
+
+DESIGN SPRINTS (Google): 5-phase process: Understand → Diverge → Decide → Prototype → Validate
+
+RESEARCH IN THE WILD (Rogers & Marshall): Deploy prototype in natural environment, observe actual use, iterate.` },
+    { id: "ch2_5", title: "2.5 Finding What People Need", content: `Users rarely know what is possible. Instead:
+• Explore the problem space
+• Investigate potential users and activities
+• Try ideas with potential users
+• Focus on goals, usability, UX goals
+
+Key insight: Observe what people do, not just what they say.` },
+    { id: "ch2_6", title: "2.6 Deciding What to Design", content: `EXPLORE THE PROBLEM SPACE
+Questions: What is current UX? Why change needed? How will change improve?
+
+ARTICULATING THE PROBLEM SPACE
+• Team effort
+• Explore different perspectives
+• Avoid incorrect assumptions and unsupported claims` },
+    { id: "ch2_7", title: "2.7 Generating & Choosing Alternatives", content: `GENERATING ALTERNATIVES: flair/creativity, cross-fertilization, user ideas, SCAMPER prompts, inspiration from other products.
+
+CHOOSING ALTERNATIVES: externally-visible behavior, technical feasibility, evaluation with prototypes, A/B Testing, quality thresholds, UX goals.` },
+    { id: "ch2_8", title: "2.8 Integrating with Other Models", content: `INTEGRATING WITH AGILE:
+• Tight iterations
+• Early and regular feedback
+• Handles emergent requirements
+• Balances flexibility and structure
+
+CHAPTER 2 KEY POINTS: Four activities; people-centered design (early focus, empirical, iterative); understand problem space first; involve stakeholders; generate and evaluate alternatives.` }
+  ];
+
+  // ========== CHAPTER 3: COGNITIVE ASPECTS ==========
+  const chapter3Topics = [
+    { id: "ch3_1", title: "3.1 What is Cognition?", content: `COGNITION: mental processes in perception, attention, memory, learning, problem-solving.
+
+Two modes: Experiential (fast, automatic) and Reflective (slow, analytical).` },
+    { id: "ch3_2", title: "3.2 Attention", content: `ATTENTION: focusing on specific stimuli.
+
+Types: Selective, Divided, Sustained.
+
+Design: use multimodal cues, avoid overload, make important elements salient.` },
+    { id: "ch3_3", title: "3.3 Perception", content: `PERCEPTION: interpreting sensory information.
+
+GESTALT PRINCIPLES: Proximity, Similarity, Continuity, Closure, Figure-Ground.
+
+Design: visual hierarchy, readability, group related controls.` },
+    { id: "ch3_4", title: "3.4 Memory", content: `MEMORY TYPES: Sensory, Short-term/Working (7±2 chunks), Long-term.
+
+Design: Recognition over recall, consistent navigation, cues/reminders, external cognition support.` },
+    { id: "ch3_5", title: "3.5 Learning & Problem-Solving", content: `LEARNING: exploratory learning, progressive disclosure, familiar metaphors, onboarding.
+
+PROBLEM-SOLVING: clear error feedback, multiple paths, simplify complex tasks.` },
+    { id: "ch3_6", title: "3.6 External & Distributed Cognition", content: `EXTERNAL COGNITION: reminders, calendars, maps, progress indicators.
+
+DISTRIBUTED COGNITION: knowledge across people, artifacts, environment. Design for coordination, shared awareness.` },
+    { id: "ch3_7", title: "3.7 Cognitive Load", content: `COGNITIVE LOAD: Intrinsic (task), Extraneous (poor design), Germane (learning).
+
+Reduce extraneous load: simplify, chunk information, familiar conventions, clear navigation, progressive disclosure.` },
+    { id: "ch3_8", title: "3.8 Key Takeaways", content: `CHAPTER 3 KEY POINTS: attention, perception, memory, learning; recognition over recall; external cognition; minimize extraneous cognitive load.` }
+  ];
+
+  // ========== CHAPTER 4: SOCIAL INTERACTION & EMOTION ==========
+  const chapter4Topics = [
+    { id: "ch4_1", title: "4.1 Social Interaction & Conversation", content: `CONVERSATION MECHANISMS: Co-presence, Remote conversation, Collaboration, Sharable interfaces.
+
+Digital social media: global reach, information sharing; disadvantages: privacy risks, inauthentic expression.` },
+    { id: "ch4_2", title: "4.2 Emotional Design", content: `EMOTIONAL DESIGN (Norman): Visceral (automatic), Behavioural (learned), Reflective (conscious thought).
+
+Design: aesthetics, usability, personal meaning.` },
+    { id: "ch4_3", title: "4.3 Expressive Interfaces & Anthropomorphism", content: `EXPRESSIVE INTERFACES: convey emotions.
+
+ANTHROPOMORPHISM: human qualities to machines (virtual assistants, chatbots). Can increase engagement but manage expectations.
+
+PERSUASIVE TECHNOLOGIES: change attitudes/behaviors (fitness trackers, gamification).` },
+    { id: "ch4_4", title: "4.4 Key Takeaways", content: `CHAPTER 4 KEY POINTS: conversation mechanisms; emotional design (visceral, behavioural, reflective); anthropomorphism benefits/cautions; persuasive technologies for behavior change.` }
+  ];
+
+  // ========== CHAPTER 5: INTERFACES & INTERACTION TYPES ==========
+  const chapter5Topics = [
+    { id: "ch5_1", title: "5.1 Interaction Types", content: `INTERACTION TYPES:
+1. Instructing: user issues commands
+2. Conversing: dialogue with system
+3. Manipulating/Direct Manipulation: gestures (drag, pinch, swipe)
+4. Exploring: navigating information spaces` },
+    { id: "ch5_2", title: "5.2 Interface Metaphors", content: `INTERFACE METAPHORS: familiar objects enabling understanding of conceptual model.
+
+Examples: Desktop metaphor, Bookshelf, Shopping cart, Calendar.
+
+Benefits: reduces learning curve, leverages existing knowledge.` },
+    { id: "ch5_3", title: "5.3 Usability & UX Revisited", content: `USABILITY: Effectiveness, Efficiency, Safety, Utility, Learnability, Memorability.
+UX: Satisfaction, enjoyment, engagement, emotional fulfillment.
+
+Trade-offs: balance efficiency with enjoyment based on context.` },
+    { id: "ch5_4", title: "5.4 Design Principles Applied", content: `DESIGN PRINCIPLES SUMMARY: Visibility, Feedback, Constraints, Consistency, Affordance.
+
+CS Application exam scenario: buttons look clickable (affordance), clear navigation (visibility), confirmation messages (feedback), consistent icons, disabled invalid options (constraints).` },
+    { id: "ch5_5", title: "5.5 Key Takeaways", content: `CHAPTER 5 KEY POINTS: instructing, conversing, manipulating, exploring; interface metaphors reduce learning curve; usability vs UX goals; design principles guide evaluation.` }
+  ];
+
+  // ========== CHAPTER 6: EVALUATION & PROTOTYPING ==========
+  const chapter6Topics = [
+    { id: "ch6_1", title: "6.1 What is Evaluation?", content: `EVALUATION IN INTERACTION DESIGN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Evaluation: assessing product quality and user experience throughout design process.
+
+Why evaluate:
+• Identify usability problems
+• Validate design decisions
+• Measure against goals
+• Improve product iteratively` },
+    { id: "ch6_2", title: "6.2 Evaluation Approaches", content: `THREE MAIN APPROACHES
+1. USER TESTING: users perform tasks; measure time, errors, satisfaction.
+2. HEURISTIC EVALUATION: experts evaluate against usability principles.
+3. FIELD STUDIES: observe users in natural context; ecological validity.
+A/B TESTING: compare two versions with real users.` },
+    { id: "ch6_3", title: "6.3 Usability Testing Methods", content: `Think-Aloud Protocol: users verbalize thoughts.
+Remote Testing: users participate from own locations.
+Metrics: task success rate, time on task, error rate, satisfaction (SUS).
+
+Formative evaluation: during design to improve.
+Summative evaluation: after completion to assess success.` },
+    { id: "ch6_4", title: "6.4 Prototyping", content: `PROTOTYPING
+Low-fidelity: paper sketches, wireframes; quick, cheap, encourages iteration.
+High-fidelity: interactive, functional, realistic feedback; more time-consuming.
+Horizontal prototypes: broad functionality, shallow depth.
+Vertical prototypes: deep functionality for specific feature.
+
+Goal: get feedback early, reduce risk, validate design direction.` },
+    { id: "ch6_5", title: "6.5 Heuristic Evaluation (Nielsen)", content: `NIELSEN'S 10 USABILITY HEURISTICS
+1. Visibility of system status
+2. Match between system and real world
+3. User control and freedom
+4. Consistency and standards
+5. Error prevention
+6. Recognition rather than recall
+7. Flexibility and efficiency of use
+8. Aesthetic and minimalist design
+9. Help users recognize, diagnose, recover from errors
+10. Help and documentation
+
+3-5 experts identify 60-75% of usability problems.` },
+    { id: "ch6_6", title: "6.6 Evaluation in Agile & Continuous UX", content: `EVALUATION IN AGILE: Sprint reviews, prototype testing each iteration, analytics.
+
+Lean UX: early, frequent user contact.
+
+Continuous UX: analytics, session recordings, customer feedback, NPS.
+
+Goal: close feedback loop; data-driven iteration.` },
+    { id: "ch6_7", title: "6.7 Key Takeaways", content: `CHAPTER 6 KEY POINTS: user testing, heuristic evaluation, field studies; low to high fidelity prototyping; Nielsen's 10 heuristics; formative vs summative evaluation; continuous evaluation in agile.` }
+  ];
+
+  // ========== CHAPTER 7: DATA GATHERING, REQUIREMENTS & ANALYSIS ==========
+  const chapter7Topics = [
+    { id: "ch7_1", title: "7.1 What are Requirements?", content: `REQUIREMENTS IN INTERACTION DESIGN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Requirements: statement about intended product; what it should do and how it should behave.
+
+Types of requirements:
+• Functional: what the system should do (features, functions)
+• Non-functional: constraints, usability, performance, security, reliability
+• Data requirements: types, structure, volume of data
+• Environmental: physical, social, organizational context
+• User characteristics: abilities, skills, preferences
+
+Sources: stakeholders, existing systems, domain experts, competitors, standards.` },
+    { id: "ch7_2", title: "7.2 Data Gathering Methods", content: `DATA GATHERING METHODS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. INTERVIEWS
+• Structured: fixed questions, consistent
+• Semi-structured: flexible, follow-up questions
+• Unstructured: exploratory, rich insights
+• Focus groups: group discussion, multiple perspectives
+
+2. OBSERVATION
+• Direct observation: watch users in context
+• Participant observation: researcher engages in activity
+• Ethnography: deep immersion in user environment
+
+3. QUESTIONNAIRES & SURVEYS
+• Quantitative data from large samples
+• Likert scales, multiple choice, open-ended
+• Online tools (Google Forms, SurveyMonkey)
+
+4. DOCUMENT ANALYSIS
+• User manuals, help requests, existing documentation
+• Analytics logs, usage data
+
+5. DIARIES & EXPERIENCE SAMPLING
+• Users record activities over time
+• Captures context and patterns
+
+Triangulation: use multiple methods for comprehensive understanding.` },
+    { id: "ch7_3", title: "7.3 Requirements Analysis & Modeling", content: `REQUIREMENTS ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Process: organize, interpret, and prioritize gathered data.
+
+Techniques:
+• Affinity diagramming: group related findings
+• Personas: archetypal user profiles (characteristics, goals, behaviors)
+• Scenarios: stories of users interacting with product
+• Use cases: describe interaction sequences
+• User stories: "As a [role], I want [goal], so that [benefit]"
+• Task analysis: break down user activities
+
+Persona components:
+• Name, photo, demographics
+• Goals and motivations
+• Pain points and frustrations
+• Skills and expertise
+• Environment and context
+
+Scenarios: detailed narratives of tasks in context; help validate requirements.` },
+    { id: "ch7_4", title: "7.4 Hierarchical Task Analysis (HTA)", content: `HIERARCHICAL TASK ANALYSIS (HTA)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HTA breaks tasks into subtasks in hierarchy.
+
+Structure:
+0. Main task goal
+  1. Plan 1
+    1.1. Subtask 1
+    1.2. Subtask 2
+  2. Plan 2
+    2.1. Subtask 1
+
+Plans: specify order or conditions (do 1.1, then 1.2; if error, do 1.3).
+
+Benefits:
+• Identifies all user activities
+• Reveals task complexity
+• Informs interface structure
+• Helps design error recovery
+
+Example: "Make coffee"
+0. Make coffee
+  1. Get coffee (plan: 1.1 then 1.2)
+    1.1. Open cupboard
+    1.2. Take coffee jar
+  2. Boil water (plan: 2.1 then 2.2)
+    2.1. Fill kettle
+    2.2. Switch on` },
+    { id: "ch7_5", title: "7.5 Prioritizing Requirements", content: `PRIORITIZING REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Not all requirements equal; must prioritize within constraints.
+
+MOSCOW Method:
+• Must have: critical for success
+• Should have: important but not vital
+• Could have: nice to have if time/resources permit
+• Won't have: explicitly excluded for this release
+
+Kano Model:
+• Basic needs: expected; absence causes dissatisfaction
+• Performance needs: linear satisfaction; more is better
+• Excitement needs: unexpected delights; create satisfaction
+
+Factors: business value, user value, technical feasibility, cost, risk, dependencies.` },
+    { id: "ch7_6", title: "7.6 From Requirements to Design", content: `FROM REQUIREMENTS TO DESIGN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Requirements inform:
+• User tasks and workflows
+• Functional features
+• Usability goals (effectiveness, efficiency, satisfaction)
+• UX goals (engaging, motivating, pleasurable)
+• Technical constraints
+• Accessibility needs
+
+Traceability: ensure design decisions align with requirements.
+
+Iterative refinement: requirements evolve as understanding deepens.
+
+Validation: verify that design meets requirements (inspection, evaluation, user testing).
+
+Key insight: Requirements are not fixed; they emerge and refine throughout design process.` },
+    { id: "ch7_7", title: "7.7 Key Takeaways: Requirements", content: `CHAPTER 7 KEY POINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Requirements: functional, non-functional, data, environmental, user characteristics
+✓ Data gathering methods: interviews, observation, questionnaires, document analysis, diaries
+✓ Triangulation: combine multiple methods for comprehensive understanding
+✓ Analysis techniques: affinity diagrams, personas, scenarios, use cases, user stories
+✓ Hierarchical Task Analysis (HTA): breaks tasks into structured hierarchy with plans
+✓ Prioritization: MOSCOW (Must/Should/Could/Won't), Kano model (basic, performance, excitement)
+✓ Requirements drive design; traceability ensures alignment
+✓ Requirements evolve iteratively; validation confirms design meets needs
+
+REQUIREMENTS GATHERING PRINCIPLES
+• Focus on users and their goals
+• Observe what people do, not just what they say
+• Involve stakeholders throughout
+• Understand context of use
+• Be prepared to iterate and refine` }
+  ];
+
+  // Combine all topics
+  const allTopics = [
+    ...chapter1Topics.map(t => ({ ...t, chapter: 1, chapterTitle: "Chapter 1: What is Interaction Design?" })),
+    ...chapter2Topics.map(t => ({ ...t, chapter: 2, chapterTitle: "Chapter 2: The Process of Interaction Design" })),
+    ...chapter3Topics.map(t => ({ ...t, chapter: 3, chapterTitle: "Chapter 3: Cognitive Aspects" })),
+    ...chapter4Topics.map(t => ({ ...t, chapter: 4, chapterTitle: "Chapter 4: Social Interaction & Emotional Design" })),
+    ...chapter5Topics.map(t => ({ ...t, chapter: 5, chapterTitle: "Chapter 5: Interfaces & Interaction Types" })),
+    ...chapter6Topics.map(t => ({ ...t, chapter: 6, chapterTitle: "Chapter 6: Evaluation & Prototyping" })),
+    ...chapter7Topics.map(t => ({ ...t, chapter: 7, chapterTitle: "Chapter 7: Data Gathering, Requirements & Analysis" }))
+  ];
+
+  // Application class
+  class NotesApplication {
+    constructor() {
+      this.selectedNote = allTopics[0];
+      this.isSidebarOpen = window.innerWidth <= 780 ? false : true;
+      this.init();
+    }
+
+    init() {
+      this.render();
+      this.bindEvents();
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 780) {
+          this.isSidebarOpen = true;
+        } else {
+          this.isSidebarOpen = false;
+        }
+        this.render();
+        this.bindEvents();
+      });
+    }
+
+    setSelectedNote(note) {
+      this.selectedNote = note;
+      if (window.innerWidth <= 780) {
+        this.isSidebarOpen = false;
+      }
+      this.render();
+      this.bindEvents();
+    }
+
+    toggleSidebar() {
+      this.isSidebarOpen = !this.isSidebarOpen;
+      this.render();
+      this.bindEvents();
+    }
+
+    closeSidebar() {
+      if (window.innerWidth <= 780) {
+        this.isSidebarOpen = false;
+        this.render();
+        this.bindEvents();
+      }
+    }
+
+    render() {
+      const root = document.getElementById('root');
+      if (!root) return;
+
+      const activeNote = this.selectedNote;
+
+      let chapterGroups = {};
+      for (let i = 1; i <= 7; i++) {
+        chapterGroups[i] = { title: "", topics: [] };
+      }
+      allTopics.forEach(topic => {
+        chapterGroups[topic.chapter].title = topic.chapterTitle;
+        chapterGroups[topic.chapter].topics.push(topic);
+      });
+
+      let topicItemsHtml = '';
+      for (let i = 1; i <= 7; i++) {
+        if (chapterGroups[i].topics.length > 0) {
+          topicItemsHtml += `<div class="chapter-group">
+            <div class="chapter-heading">${escapeHtml(chapterGroups[i].title)}</div>
+            <ul class="topic-list">`;
+          chapterGroups[i].topics.forEach(topic => {
+            const isActive = activeNote.id === topic.id;
+            topicItemsHtml += `<li class="topic-item ${isActive ? 'active' : ''}" data-id="${topic.id}">${escapeHtml(topic.title)}</li>`;
+          });
+          topicItemsHtml += `</ul></div>`;
+        }
+      }
+
+      const sidebarClass = this.isSidebarOpen ? 'sidebar open' : 'sidebar';
+      const backdropClass = (this.isSidebarOpen && window.innerWidth <= 780) ? 'backdrop show' : 'backdrop';
+
+      const html = `
+        <div class="app">
+          <div class="mobile-header">
+            <button class="hamburger" id="menuToggleBtn" aria-label="Menu">☰</button>
+            <span>HCI401T • Interaction Design</span>
+          </div>
+          <div class="${backdropClass}" id="backdropEl"></div>
+          <aside class="${sidebarClass}" id="sidebarNav">
+            <div class="sidebar-header">
+              <h1>HMD</h1>
+              <p>Rogers, Sharp & Preece (2023)<br>Complete Notes • Chapters 1–7</p>
+            </div>
+            <div class="sidebar-topics-container">
+              ${topicItemsHtml}
+            </div>
+            <div class="footer-note-sidebar">
+              ${allTopics.length} topics • All chapters • Semester Test Prep
+            </div>
+          </aside>
+          <main class="main-content">
+            <div class="note-card">
+              <div class="note-header">
+                <h2>${escapeHtml(activeNote.title)}</h2>
+              </div>
+              <div class="note-content">
+                <pre>${escapeHtml(activeNote.content)}</pre>
+              </div>
+            </div>
+            <div class="footer-note">
+             Yvonne Rogers, Helen Sharp, Jenny Preece • Interaction Design: beyond human-computer interaction (2023)<br>
+              HCI401T — Semester Test Preparation | Tshwane University of Technology
+            </div>
+          </main>
+        </div>
+      `;
+
+      root.innerHTML = html;
+    }
+
+    bindEvents() {
+      const topicItems = document.querySelectorAll('.topic-item');
+      topicItems.forEach(item => {
+        const clickHandler = () => {
+          const id = item.getAttribute('data-id');
+          const found = allTopics.find(t => t.id === id);
+          if (found) this.setSelectedNote(found);
+        };
+        item.removeEventListener('click', this._topicHandler);
+        this._topicHandler = clickHandler;
+        item.addEventListener('click', this._topicHandler);
+      });
+
+      const menuBtn = document.getElementById('menuToggleBtn');
+      if (menuBtn) {
+        const toggleHandler = () => this.toggleSidebar();
+        menuBtn.removeEventListener('click', this._toggleBound);
+        this._toggleBound = toggleHandler;
+        menuBtn.addEventListener('click', this._toggleBound);
+      }
+
+      const backdrop = document.getElementById('backdropEl');
+      if (backdrop) {
+        const closeHandler = () => this.closeSidebar();
+        backdrop.removeEventListener('click', this._backdropBound);
+        this._backdropBound = closeHandler;
+        backdrop.addEventListener('click', this._backdropBound);
+      }
+    }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    window.app = new NotesApplication();
+  });
+</script>
+</body>
+</html>
