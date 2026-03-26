@@ -290,9 +290,9 @@
 
 <script>
   // ========== CHAPTER 1: WHAT IS INTERACTION DESIGN? ==========
-  const chapter1Topics = [
-    { id: "ch1_1", title: "1.1 What is Interaction Design?", content: `INTERACTION DESIGN (ID)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const chapter1Topics = [
+  { id: "ch1_1", title: "1.1 What is Interaction Design?", content: `INTERACTION DESIGN (ID)
 
 Definition (Sharp, Rogers, Preece, 2019):
 "Designing interactive products to support the way people communicate and interact in their everyday and working lives."
@@ -303,14 +303,14 @@ Winograd (1997):
 Different Perspectives: User-centered design, Human-centered design, People-centered design, Customer experience design.
 
 Core: Optimize interactions so they match user activities, needs, and contexts.` },
-    { id: "ch1_2", title: "1.2 Good vs Bad Design & Digital Shift", content: `GOOD DESIGN: TiVo Remote — peanut shape, logical color-coded buttons, easy to locate.
+  { id: "ch1_2", title: "1.2 Good vs Bad Design & Digital Shift", content: `GOOD DESIGN: TiVo Remote — peanut shape, logical color-coded buttons, easy to locate.
 
 SMART TV DILEMMA: pecking, swiping, or voice control? Depends on context.
 
 DIGITAL TRANSFORMATION
 Benefits: faster, convenient, stored details, QR codes.
 Disadvantages: digital divide, privacy concerns, preference for human interaction.` },
-    { id: "ch1_3", title: "1.3 Goals of Interaction Design", content: `CORE GOALS:
+  { id: "ch1_3", title: "1.3 Goals of Interaction Design", content: `CORE GOALS:
 1. Develop usable products
 2. Involve people in design process
 3. Consider what people are good/bad at
@@ -319,7 +319,7 @@ Disadvantages: digital divide, privacy concerns, preference for human interactio
 6. Consider privacy concerns
 7. Listen to what people want
 8. Use people-centered techniques` },
-    { id: "ch1_4", title: "1.4 Multidisciplinary Teams & ID", content: `ID AS UMBRELLA TERM: UI design, software design, product design, UX design.
+  { id: "ch1_4", title: "1.4 Multidisciplinary Teams & ID", content: `ID AS UMBRELLA TERM: UI design, software design, product design, UX design.
 
 Academic disciplines: Psychology, Social Sciences, Computing, Engineering, Ergonomics.
 Design practices: Graphic design, Product design, Industrial design.
@@ -327,39 +327,165 @@ Design practices: Graphic design, Product design, Industrial design.
 MULTIDISCIPLINARY TEAMS
 Benefits: More ideas and designs generated, diverse perspectives.
 Disadvantages: Communication barriers, different vocabularies.` },
-    { id: "ch1_5", title: "1.5 People-Centered Design & UX", content: `Don Norman: "We need to build joy, excitement, pleasure and fun, and yes, beauty to people's lives."
+  { id: "ch1_5", title: "1.5 People-Centered Design & UX", content: `Don Norman: "We need to build joy, excitement, pleasure and fun, and yes, beauty to people's lives."
 
 HASSENZAHL'S UX MODEL
-• Pragmatic: simple, practical, goal achievement
-• Hedonic: evocative, stimulating, wellbeing
+Pragmatic: simple, practical, goal achievement
+Hedonic: evocative, stimulating, wellbeing
 
 ACCESSIBILITY: usable by people with disabilities.
 INCLUSIVENESS: accommodate widest range regardless of disability, age, income.` },
-    { id: "ch1_6", title: "1.6 Usability vs UX Goals", content: `USABILITY GOALS (Functional)
-Effective | Efficient | Safe | Good utility | Easy to learn | Easy to remember | Enjoyable
+  { id: "ch1_6", title: "1.6 Usability vs UX Goals", content: `USABILITY GOALS (Functional)
+Effective, Efficient, Safe, Good utility, Easy to learn, Easy to remember, Enjoyable
 
 UX GOALS (Emotional)
 Desirable: Satisfying, Fun, Engaging, Motivating, Rewarding, Flow
 Undesirable: Boring, Frustrating, Patronizing, Deceptive, Annoying` },
-    { id: "ch1_7", title: "1.7 Design Principles: Visibility & Feedback", content: `VISIBILITY: Make relevant parts obvious. Elevator card reader — solution: make card reader visible, auditory message.
+  { id: "ch1_7", title: "1.7 Design Principles: Visibility & Feedback", content: `VISIBILITY: Make relevant parts obvious. Example: Elevator card reader — solution: make card reader visible, auditory message.
 
-FEEDBACK: Sending info back about action: sound, highlighting, animation.` },
-    { id: "ch1_8", title: "1.8 Constraints & Consistency", content: `CONSTRAINTS: Restrict possible actions to prevent errors.
+FEEDBACK: Sending information back about action: sound, highlighting, animation.` },
+  { id: "ch1_8", title: "1.8 Constraints & Consistency", content: `CONSTRAINTS: Restrict possible actions to prevent errors.
 
-CONSISTENCY: Internal (within app) vs External (across apps). Keypad inconsistency: phones (1,2,3 top) vs calculators (7,8,9 top).` },
-    { id: "ch1_9", title: "1.9 Affordance", content: `AFFORDANCE (Norman): Attribute that allows people to know how to use an object.
+CONSISTENCY: Internal (within app) vs External (across apps). Example: Keypad inconsistency — phones (1,2,3 top) vs calculators (7,8,9 top).` },
+  { id: "ch1_9", title: "1.9 Affordance", content: `AFFORDANCE (Norman): Attribute that allows people to know how to use an object.
 
-DIGITAL = PERCEIVED AFFORDANCE: Learned conventions: button with shadow looks clickable.` },
-    { id: "ch1_10", title: "1.10 Key Takeaways", content: `CHAPTER 1 KEY POINTS:
-• ID supports how people communicate and interact
-• Quality UX = pragmatic + hedonic qualities
-• Design principles: visibility, feedback, constraints, consistency, affordance
-• Multidisciplinary teams generate more ideas` }
-  ];
+DIGITAL: PERCEIVED AFFORDANCE — learned conventions, e.g., button with shadow looks clickable.` },
+  { id: "ch1_10", title: "1.10 Key Takeaways", content: `CHAPTER 1 KEY POINTS:
+- Interaction design supports how people communicate and interact
+- Quality UX combines pragmatic and hedonic qualities
+- Design principles: visibility, feedback, constraints, consistency, affordance
+- Multidisciplinary teams generate more ideas` },
+  { id: "ch1_10_1", title: "1.10.1 Exam-Style Questions & Answers", content: `
+Question 1: Multiple Choice
+
+1.1 Interaction Design is best described as:
+a. Designing databases
+b. Designing interactive products for human use
+c. Programming systems
+d. Testing software
+Answer: b
+
+1.2 Which usability goal ensures users achieve tasks correctly?
+a. Efficiency
+b. Safety
+c. Effectiveness
+d. Memorability
+Answer: c
+
+1.3 Which usability goal is achieved when tasks are completed quickly?
+a. Effectiveness
+b. Efficiency
+c. Utility
+d. Learnability
+Answer: b
+
+1.4 Which design principle ensures users know what actions are possible?
+a. Feedback
+b. Visibility
+c. Constraints
+d. Consistency
+Answer: b
+
+1.5 Which design principle prevents users from making errors?
+a. Visibility
+b. Feedback
+c. Constraints
+d. Affordance
+Answer: c
+
+1.6 A button that looks clickable is an example of:
+a. Feedback
+b. Real affordance
+c. Perceived affordance
+d. Visibility
+Answer: c
+
+1.7 Which design principle ensures similar operations behave the same?
+a. Feedback
+b. Consistency
+c. Constraints
+d. Visibility
+Answer: b
+
+1.8 Which of the following is a UX goal?
+a. Efficiency
+b. Effectiveness
+c. Fun
+d. Safety
+Answer: c
+
+1.9 Which is NOT a benefit of multidisciplinary teams?
+a. More ideas
+b. Diverse perspectives
+c. Faster communication always
+d. Better design solutions
+Answer: c
+
+1.10 Which concept focuses on both emotional and functional experience?
+a. Usability
+b. UX
+c. Visibility
+d. Constraints
+Answer: b
+
+Question 2: Design Principles
+
+2.1 Identify and explain THREE design principles
+Answer:
+- Visibility – Important elements must be clearly visible so users know what to do.
+- Feedback – System must respond to user actions (e.g., loading spinner, message).
+- Constraints – Limits user actions to prevent mistakes (e.g., disabling buttons).
+
+2.2 Explain Affordance with an example
+Answer: Affordance refers to properties that indicate how an object should be used. Example: A button with shadow suggests it can be clicked.
+
+2.3 Discuss one disadvantage of multidisciplinary teams
+Answer: Communication becomes difficult due to different backgrounds and terminology.
+
+Question 3: Scenario-Based
+
+Scenario: A university creates an app where learners can view courses, register, and access materials.
+
+3.1 Identify TWO usability goals applicable
+Answer:
+- Effectiveness – learners can complete tasks successfully
+- Efficiency – tasks are completed quickly
+
+3.2 Explain how Feedback is applied
+Answer: The system shows messages when actions are performed (e.g., “Registration successful”).
+
+3.3 Identify ONE UX goal and explain
+Answer:
+- Engaging – interface keeps learners interested through design and interaction.
+
+3.4 Identify ONE benefit of digital transformation
+Answer: Faster access to information and services anytime.
+
+Question 4: Theory + Application
+
+4.1 Explain the difference between Usability and UX
+Answer:
+- Usability focuses on functionality (easy, efficient, safe)
+- UX focuses on emotions and overall experience (fun, satisfying)
+
+4.2 Discuss TWO advantages of good design
+Answer:
+- Easy to use
+- Reduces user errors
+
+4.3 Explain Consistency with example
+Answer: Consistency ensures similar actions behave the same. Example: All buttons use the same color for the same function.
+
+4.4 Identify TWO problems with bad design
+Answer:
+- Confusing navigation
+- Poor user experience
+`}
+];
 
   // ========== CHAPTER 2: THE PROCESS OF INTERACTION DESIGN ==========
   const chapter2Topics = [
-    { id: "ch2_1", title: "2.1 What is Involved in ID Process?", content: `INTERACTION DESIGN PROCESS
+  { id: "ch2_1", title: "2.1 What is Involved in ID Process?", content: `INTERACTION DESIGN PROCESS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Focused on: discovering requirements, designing to fulfil requirements, producing prototypes, evaluating.
@@ -369,14 +495,14 @@ Generating alternatives and choosing between them is central.
 Four approaches: User-centered design, Activity-centered design, Systems design, Genius design.
 
 THE DOUBLE DIAMOND: Discover → Define → Develop → Deliver` },
-    { id: "ch2_2", title: "2.2 Who to Involve & Importance of Users", content: `STAKEHOLDERS: Direct/indirect users, developers, executives, legislators.
+  { id: "ch2_2", title: "2.2 Who to Involve & Importance of Users", content: `STAKEHOLDERS: Direct/indirect users, developers, executives, legislators.
 
 IMPORTANCE OF INVOLVING USERS
 Expectation Management: realistic expectations, no surprises, timely training.
 Ownership: users as active stakeholders → more acceptance.
 
 DEGREES OF INVOLVEMENT: design team member, small groups, crowdsourcing, participatory design, A/B testing.` },
-    { id: "ch2_3", title: "2.3 People-Centered Approach & Four Activities", content: `PEOPLE-CENTERED DESIGN PRINCIPLES
+  { id: "ch2_3", title: "2.3 People-Centered Approach & Four Activities", content: `PEOPLE-CENTERED DESIGN PRINCIPLES
 1. Early focus on users and tasks
 2. Empirical measurement
 3. Iterative design
@@ -386,136 +512,479 @@ FOUR BASIC ACTIVITIES
 2. Designing alternatives
 3. Prototyping alternative designs
 4. Evaluating product and user experience throughout` },
-    { id: "ch2_4", title: "2.4 Lifecycle Models", content: `SIMPLE ID LIFECYCLE: Discover → Design → Prototype → Evaluate (iterative)
+  { id: "ch2_4", title: "2.4 Lifecycle Models", content: `SIMPLE ID LIFECYCLE: Discover → Design → Prototype → Evaluate (iterative)
 
 DESIGN SPRINTS (Google): 5-phase process: Understand → Diverge → Decide → Prototype → Validate
 
 RESEARCH IN THE WILD (Rogers & Marshall): Deploy prototype in natural environment, observe actual use, iterate.` },
-    { id: "ch2_5", title: "2.5 Finding What People Need", content: `Users rarely know what is possible. Instead:
-• Explore the problem space
-• Investigate potential users and activities
-• Try ideas with potential users
-• Focus on goals, usability, UX goals
+  { id: "ch2_5", title: "2.5 Finding What People Need", content: `Users rarely know what is possible. Instead:
+- Explore the problem space
+- Investigate potential users and activities
+- Try ideas with potential users
+- Focus on goals, usability, UX goals
 
 Key insight: Observe what people do, not just what they say.` },
-    { id: "ch2_6", title: "2.6 Deciding What to Design", content: `EXPLORE THE PROBLEM SPACE
+  { id: "ch2_6", title: "2.6 Deciding What to Design", content: `EXPLORE THE PROBLEM SPACE
 Questions: What is current UX? Why change needed? How will change improve?
 
 ARTICULATING THE PROBLEM SPACE
-• Team effort
-• Explore different perspectives
-• Avoid incorrect assumptions and unsupported claims` },
-    { id: "ch2_7", title: "2.7 Generating & Choosing Alternatives", content: `GENERATING ALTERNATIVES: flair/creativity, cross-fertilization, user ideas, SCAMPER prompts, inspiration from other products.
+- Team effort
+- Explore different perspectives
+- Avoid incorrect assumptions and unsupported claims` },
+  { id: "ch2_7", title: "2.7 Generating & Choosing Alternatives", content: `GENERATING ALTERNATIVES: flair/creativity, cross-fertilization, user ideas, SCAMPER prompts, inspiration from other products.
 
 CHOOSING ALTERNATIVES: externally-visible behavior, technical feasibility, evaluation with prototypes, A/B Testing, quality thresholds, UX goals.` },
-    { id: "ch2_8", title: "2.8 Integrating with Other Models", content: `INTEGRATING WITH AGILE:
-• Tight iterations
-• Early and regular feedback
-• Handles emergent requirements
-• Balances flexibility and structure
+  { id: "ch2_8", title: "2.8 Key Takeaways", content: `CHAPTER 2 KEY POINTS: Four activities; people-centered design (early focus, empirical, iterative); understand problem space first; involve stakeholders; generate and evaluate alternatives.` },
+  { id: "ch2_8_1", title: "2.8.1 Exam-Style Questions and Answers", content: `
+Possible semester test questions based on Chapter 2
 
-CHAPTER 2 KEY POINTS: Four activities; people-centered design (early focus, empirical, iterative); understand problem space first; involve stakeholders; generate and evaluate alternatives.` }
-  ];
+Question 1: Multiple Choice
+
+1.1 Which of the following is a key activity in the Interaction Design process?
+a. Coding the backend
+b. Discovering requirements
+c. Financial planning
+d. Marketing
+Answer: b
+
+1.2 What does the Double Diamond model include?
+a. Plan, Execute, Close
+b. Discover, Define, Develop, Deliver
+c. Research, Design, Launch, Maintain
+d. Brainstorm, Build, Test, Deploy
+Answer: b
+
+1.3 Which approach emphasizes focusing on user tasks and goals?
+a. Systems design
+b. Activity-centered design
+c. Genius design
+d. User-centered design
+Answer: d
+
+1.4 Who should be involved as stakeholders in the design process?
+a. Only developers
+b. Only users
+c. Direct and indirect users, developers, executives, legislators
+d. Only executives
+Answer: c
+
+1.5 What is one main reason for involving users early in the process?
+a. To reduce costs
+b. Expectation management and ownership
+c. To write technical documentation
+d. To speed up coding
+Answer: b
+
+Question 2: Short Answer
+
+2.1 Name the four basic activities in the people-centered design approach.
+Answer: Discovering requirements, Designing alternatives, Prototyping alternative designs, Evaluating product and user experience
+
+2.2 Explain why iterative design is important.
+Answer: It allows the team to improve the product based on user feedback and testing repeatedly until it meets user needs.
+
+2.3 Give one example of a research method that observes actual use in context.
+Answer: Research in the wild, deploying prototypes in natural environments.
+
+2.4 What is the main goal when generating alternatives?
+Answer: To explore different design options and select the best solution based on feasibility, usability, and UX goals.
+
+2.5 What is a disadvantage of not involving stakeholders?
+Answer: Designs may not meet user needs, leading to poor acceptance and low usability.
+
+Question 3: Scenario-Based
+
+Scenario: A company wants to redesign its employee self-service portal to improve usability.
+
+3.1 Identify two activities from the ID process that should be applied.
+Answer: Discovering requirements and prototyping alternative designs
+
+3.2 Name one usability goal that should be considered.
+Answer: Effectiveness – employees can complete tasks correctly
+
+3.3 Explain how involving users can improve the design.
+Answer: Users provide feedback, ensure expectations are realistic, and increase ownership and acceptance of the final product
+
+3.4 Identify one method to test design alternatives.
+Answer: A/B testing or user evaluation of prototypes
+
+Question 4: Theory
+
+4.1 Explain the difference between user-centered design and activity-centered design.
+Answer: User-centered design focuses on individual user needs and tasks; activity-centered design focuses on optimizing activities regardless of who performs them
+
+4.2 What is the main purpose of articulating the problem space?
+Answer: To ensure the design team understands current issues, explores different perspectives, and avoids incorrect assumptions
+
+4.3 Give two advantages of generating multiple design alternatives.
+Answer: Encourages creativity, allows comparison to select the best solution
+
+4.4 Name one key advantage of design sprints.
+Answer: Quick iterations that validate ideas fast and provide user feedback
+`}
+];
 
   // ========== CHAPTER 3: COGNITIVE ASPECTS ==========
   const chapter3Topics = [
-    { id: "ch3_1", title: "3.1 What is Cognition?", content: `COGNITION: mental processes in perception, attention, memory, learning, problem-solving.
+  { id: "ch3_1", title: "3.1 What is Cognition?", content: `COGNITION: mental processes in perception, attention, memory, learning, problem-solving.
 
 Two modes: Experiential (fast, automatic) and Reflective (slow, analytical).` },
-    { id: "ch3_2", title: "3.2 Attention", content: `ATTENTION: focusing on specific stimuli.
+  { id: "ch3_2", title: "3.2 Attention", content: `ATTENTION: focusing on specific stimuli.
 
 Types: Selective, Divided, Sustained.
 
 Design: use multimodal cues, avoid overload, make important elements salient.` },
-    { id: "ch3_3", title: "3.3 Perception", content: `PERCEPTION: interpreting sensory information.
+  { id: "ch3_3", title: "3.3 Perception", content: `PERCEPTION: interpreting sensory information.
 
 GESTALT PRINCIPLES: Proximity, Similarity, Continuity, Closure, Figure-Ground.
 
 Design: visual hierarchy, readability, group related controls.` },
-    { id: "ch3_4", title: "3.4 Memory", content: `MEMORY TYPES: Sensory, Short-term/Working (7±2 chunks), Long-term.
+  { id: "ch3_4", title: "3.4 Memory", content: `MEMORY TYPES: Sensory, Short-term/Working (7±2 chunks), Long-term.
 
 Design: Recognition over recall, consistent navigation, cues/reminders, external cognition support.` },
-    { id: "ch3_5", title: "3.5 Learning & Problem-Solving", content: `LEARNING: exploratory learning, progressive disclosure, familiar metaphors, onboarding.
+  { id: "ch3_5", title: "3.5 Learning & Problem-Solving", content: `LEARNING: exploratory learning, progressive disclosure, familiar metaphors, onboarding.
 
 PROBLEM-SOLVING: clear error feedback, multiple paths, simplify complex tasks.` },
-    { id: "ch3_6", title: "3.6 External & Distributed Cognition", content: `EXTERNAL COGNITION: reminders, calendars, maps, progress indicators.
+  { id: "ch3_6", title: "3.6 External & Distributed Cognition", content: `EXTERNAL COGNITION: reminders, calendars, maps, progress indicators.
 
 DISTRIBUTED COGNITION: knowledge across people, artifacts, environment. Design for coordination, shared awareness.` },
-    { id: "ch3_7", title: "3.7 Cognitive Load", content: `COGNITIVE LOAD: Intrinsic (task), Extraneous (poor design), Germane (learning).
+  { id: "ch3_7", title: "3.7 Cognitive Load", content: `COGNITIVE LOAD: Intrinsic (task), Extraneous (poor design), Germane (learning).
 
 Reduce extraneous load: simplify, chunk information, familiar conventions, clear navigation, progressive disclosure.` },
-    { id: "ch3_8", title: "3.8 Key Takeaways", content: `CHAPTER 3 KEY POINTS: attention, perception, memory, learning; recognition over recall; external cognition; minimize extraneous cognitive load.` }
-  ];
+  { id: "ch3_8", title: "3.8 Key Takeaways", content: `CHAPTER 3 KEY POINTS: attention, perception, memory, learning; recognition over recall; external cognition; minimize extraneous cognitive load.` },
+  { id: "ch3_8_1", title: "3.8.1 Exam-Style Questions and Answers", content: `
+Possible semester test questions based on Chapter 3
 
+Question 1: Multiple Choice
+
+1.1 Cognition includes which of the following processes?
+a. Coding and debugging
+b. Perception, attention, memory, learning, problem-solving
+c. Financial planning
+d. Graphic design
+Answer: b
+
+1.2 Which cognitive mode is fast and automatic?
+a. Reflective
+b. Experiential
+c. Analytical
+d. Slow
+Answer: b
+
+1.3 Which type of attention focuses on multiple tasks simultaneously?
+a. Selective
+b. Divided
+c. Sustained
+d. Focused
+Answer: b
+
+1.4 Which Gestalt principle groups elements that are close together?
+a. Continuity
+b. Closure
+c. Proximity
+d. Figure-Ground
+Answer: c
+
+1.5 Recognition over recall supports which cognitive process?
+a. Memory
+b. Attention
+c. Learning
+d. Problem-solving
+Answer: a
+
+Question 2: Short Answer
+
+2.1 Name the three types of memory relevant to ID design.
+Answer: Sensory, Short-term/Working, Long-term
+
+2.2 Give two ways to reduce extraneous cognitive load in design.
+Answer: Simplify information, chunk content, use familiar conventions, provide clear navigation
+
+2.3 Explain external cognition with an example.
+Answer: Using artifacts or tools to support thinking. Example: progress bars, calendars, reminders
+
+2.4 What is distributed cognition?
+Answer: Knowledge shared across people, artifacts, and environment; supports coordination and shared awareness
+
+2.5 Name one design strategy to support problem-solving.
+Answer: Provide clear error feedback, allow multiple paths, simplify complex tasks
+
+Question 3: Scenario-Based
+
+Scenario: An e-learning platform wants to improve learner engagement and retention.
+
+3.1 Identify one cognitive principle to apply for memory support.
+Answer: Recognition over recall; use cues, reminders, consistent navigation
+
+3.2 Suggest one way to manage cognitive load for learners.
+Answer: Chunk lessons into small steps, progressive disclosure, highlight important info
+
+3.3 How can external cognition be used in the platform?
+Answer: Use checklists, progress indicators, visual dashboards to guide learners
+
+3.4 Give one strategy to enhance attention.
+Answer: Use multimodal cues, make key elements salient, avoid overload
+
+Question 4: Theory
+
+4.1 Explain the difference between experiential and reflective cognition.
+Answer: Experiential is fast, automatic, and intuitive; Reflective is slow, analytical, and deliberate
+
+4.2 Name two types of attention and explain.
+Answer: Selective – focus on specific stimuli; Sustained – maintain focus over time
+
+4.3 What is the main benefit of applying Gestalt principles in design?
+Answer: Helps users perceive patterns, group related items, and understand layout quickly
+
+4.4 Why is recognition over recall preferred in interaction design?
+Answer: Reduces memory load on users, makes tasks easier and faster to complete
+`}
+];
   // ========== CHAPTER 4: SOCIAL INTERACTION & EMOTION ==========
   const chapter4Topics = [
-    { id: "ch4_1", title: "4.1 Social Interaction & Conversation", content: `CONVERSATION MECHANISMS: Co-presence, Remote conversation, Collaboration, Sharable interfaces.
+  { id: "ch4_1", title: "4.1 Social Interaction and Conversation Mechanisms", content: `In HCI, social interaction refers to how people communicate and collaborate through technology. Conversation mechanisms describe ways users share information, work together, and stay socially connected.
 
-Digital social media: global reach, information sharing; disadvantages: privacy risks, inauthentic expression.` },
-    { id: "ch4_2", title: "4.2 Emotional Design", content: `EMOTIONAL DESIGN (Norman): Visceral (automatic), Behavioural (learned), Reflective (conscious thought).
+Common mechanisms include:
+Co-presence where people share a common environment and know others are present;
+Remote conversation which uses technology to communicate when apart (text, video, voice);
+Collaboration allowing people to work together on tasks using shared tools;
+Sharable interfaces that different users can interact with at the same time.
 
-Design: aesthetics, usability, personal meaning.` },
-    { id: "ch4_3", title: "4.3 Expressive Interfaces & Anthropomorphism", content: `EXPRESSIVE INTERFACES: convey emotions.
+Modern digital social media and communication tools enable global reach, easy information sharing, community engagement, and real-time interaction. However, they also create risks such as privacy concerns, inauthentic expression, and social overload. Social interaction in HCI considers both human-human communication and how interfaces support these social mechanisms. ` },
+  { id: "ch4_2", title: "4.2 Emotional Design", content: `Emotional design focuses on how products make users feel. Don Norman described three levels of emotional processing in design:
+Visceral design which is the automatic instant reaction based on appearance and sensory appeal (e.g., colour, shape);
+Behavioural design which is learned responses during use based on usability and performance;
+Reflective design which is slow conscious thought about meaning, memories, and personal value.
 
-ANTHROPOMORPHISM: human qualities to machines (virtual assistants, chatbots). Can increase engagement but manage expectations.
+Good emotional design aims not only for usability but also for satisfying, engaging, and meaningful experiences. Designers pay attention to aesthetics, interaction quality, feedback, and personal meaning. Emotional design helps build trust, delight, and long-term attachment to products. ` },
+  { id: "ch4_3", title: "4.3 Expressive Interfaces, Anthropomorphism, and Persuasive Technologies", content: `Expressive interfaces are designs that convey emotional states and meaning through visual and interactive elements such as colours, icons, animations, and sounds. They aim to elicit positive emotional responses and make interaction feel engaging and human‑like. However, if poorly designed, they can also frustrate users.
 
-PERSUASIVE TECHNOLOGIES: change attitudes/behaviors (fitness trackers, gamification).` },
-    { id: "ch4_4", title: "4.4 Key Takeaways", content: `CHAPTER 4 KEY POINTS: conversation mechanisms; emotional design (visceral, behavioural, reflective); anthropomorphism benefits/cautions; persuasive technologies for behavior change.` }
-  ];
+Anthropomorphism in interaction design is the attribution of human‑like qualities to machines and interfaces, such as virtual assistants or chatbots. This can make interactions feel more natural and engaging but must be used carefully to manage user expectations and avoid deception.
 
+Persuasive technologies are interactive systems designed to influence people’s attitudes and behaviours without coercion. Examples include fitness trackers that use feedback and goals to motivate exercise and apps that use gamification to encourage learning. Designers must balance effectiveness with ethics, ensuring that behaviour change supports user wellbeing rather than manipulation.` },
+  { id: "ch4_4", title: "4.4 Key Takeaways", content: `CHAPTER 4 KEY POINTS:
+Social interaction mechanisms: co-presence, remote conversation, collaboration, shareable interfaces.
+Emotional design affects how users feel and form attachments to products.
+Expressive interfaces use design to communicate emotion.
+Anthropomorphism gives machines human-like qualities to improve engagement.
+Persuasive technologies influence behaviour and motivation through design.` },
+  { id: "ch4_4_1", title: "4.4.1 Exam-Style Questions and Answers", content: `
+Possible semester test questions based on Chapter 4
+
+Question 1: Multiple Choice
+
+1.1 In HCI, co-presence refers to:
+a. Users working alone
+b. Users knowing others are in the same environment
+c. A single user interface element
+d. Automated error messages
+Answer: b
+
+1.2 Remote conversation mechanisms include:
+a. Face-to-face only
+b. Text, voice, and video communication when users are apart
+c. Physical meetings
+d. Co-located gestures
+Answer: b
+
+1.3 Emotional design’s visceral level is based on:
+a. User training
+b. Immediate sensory and appearance reactions
+c. Memory of past experience
+d. Long-term goals
+Answer: b
+
+1.4 Anthropomorphism in interfaces means:
+a. Giving machines human-like qualities
+b. Making interfaces invisible
+c. Removing personality from design
+d. Simplifying code
+Answer: a
+
+1.5 Persuasive technologies are designed to:
+a. Force behaviour changes
+b. Influence attitudes or behaviours ethically
+c. Only collect data
+d. Replace user decisions
+Answer: b
+
+Question 2: Short Answer
+
+2.1 Describe one advantage of expressive interfaces.
+Answer: Expressive interfaces make interaction feel more engaging and can convey meaning through visual and interactive cues.
+
+2.2 Give one disadvantage of social media as a conversation mechanism.
+Answer: Social media can create privacy risks and inauthentic interactions.
+
+2.3 Explain why reflective design is important.
+Answer: Reflective design allows users to form personal meaning and long-term attachment to a product.
+
+2.4 Provide an example of a persuasive technology.
+Answer: A fitness app that uses goals, feedback, and progress tracking to motivate exercise.
+
+2.5 What is the main purpose of collaboration mechanisms in HCI?
+Answer: To allow users to work together on shared tasks using shared tools.
+
+Question 3: Scenario-Based
+
+Scenario: A university app includes a discussion forum, video chat for study groups, and leaderboards for course completion.
+
+3.1 Identify one social interaction mechanism supported.
+Answer: Remote conversation via video chat.
+
+3.2 Suggest one expressive interface element the app could use.
+Answer: Animated badges or progress animations.
+
+3.3 How could anthropomorphism improve engagement in the app?
+Answer: A virtual assistant with human-like greetings and personalised advice could make the experience more engaging.
+
+3.4 Name one ethical consideration when using persuasive technologies in the app.
+Answer: Ensuring behaviour influence supports user wellbeing and avoids manipulation.
+
+Question 4: Theory
+
+4.1 Explain the difference between co-presence and remote conversation mechanisms.
+Answer: Co-presence involves users aware of others in the same environment; remote conversation involves communication when users are physically apart.
+
+4.2 Why is emotional design considered part of UX?
+Answer: Because emotions influence how users feel about and remember their interactions with products.
+
+4.3 What is the risk of overusing expressive interface cues?
+Answer: It can cause frustration or distraction instead of enhancing usability.
+
+4.4 Provide one benefit of anthropomorphism in interface design.
+Answer: It can make interactions feel more natural and relatable to users.
+`} ]
   // ========== CHAPTER 5: INTERFACES & INTERACTION TYPES ==========
-  const chapter5Topics = [
-    { id: "ch5_1", title: "5.1 Interaction Types", content: `INTERACTION TYPES:
-1. Instructing: user issues commands
-2. Conversing: dialogue with system
-3. Manipulating/Direct Manipulation: gestures (drag, pinch, swipe)
-4. Exploring: navigating information spaces` },
-    { id: "ch5_2", title: "5.2 Interface Metaphors", content: `INTERFACE METAPHORS: familiar objects enabling understanding of conceptual model.
-
+ const chapter5Topics = [
+  { id: "ch5_1", title: "5.1 Interaction Types", content: `Interaction types describe the ways users engage with systems:
+Instructing: Users issue commands to the system (e.g., typing, pressing buttons).
+Conversing: Dialogue-based interaction, often through chatbots or voice assistants.
+Manipulating / Direct Manipulation: Users interact via gestures or controls directly on objects (drag, pinch, swipe).
+Exploring: Navigating through information spaces or interfaces to discover content or features.` },
+  { id: "ch5_2", title: "5.2 Interface Metaphors", content: `Interface metaphors use familiar objects or concepts to help users understand digital systems.
 Examples: Desktop metaphor, Bookshelf, Shopping cart, Calendar.
+Benefits: Reduces learning curve, leverages existing knowledge, supports discoverability and mental models.` },
+  { id: "ch5_3", title: "5.3 Usability and UX Revisited", content: `Usability focuses on functional goals: Effectiveness, Efficiency, Safety, Utility, Learnability, Memorability.
+UX focuses on emotional goals: Satisfaction, Enjoyment, Engagement, Emotional fulfillment.
+Trade-offs exist: Designers must balance efficiency and usability with pleasure, motivation, and engagement depending on context.` },
+  { id: "ch5_4", title: "5.4 Design Principles Applied", content: `Design principles applied in real scenarios:
+Visibility: Important elements must be clearly visible (e.g., clear navigation menus).
+Feedback: System responds to user actions (e.g., confirmation messages).
+Constraints: Prevent user errors (e.g., disabling invalid options).
+Consistency: Uniform behavior and appearance across similar actions (e.g., icon styles).
+Affordance: Objects suggest their usage (e.g., buttons look clickable).
+Example in computing application: Buttons that look clickable, clear navigation paths, confirmation messages, consistent icons, and disabled invalid options.` },
+  { id: "ch5_5", title: "5.5 Key Takeaways", content: `CHAPTER 5 KEY POINTS:
+Interaction types: instructing, conversing, manipulating, exploring.
+Interface metaphors help users understand systems and reduce learning effort.
+Usability vs UX: functional vs emotional goals; must balance efficiency and enjoyment.
+Design principles guide evaluation and ensure effective, safe, and satisfying interaction.` },
+  { id: "ch5_6", title: "5.6 Exam-Style Questions and Answers", content: `
+Question 1: Multiple Choice
 
-Benefits: reduces learning curve, leverages existing knowledge.` },
-    { id: "ch5_3", title: "5.3 Usability & UX Revisited", content: `USABILITY: Effectiveness, Efficiency, Safety, Utility, Learnability, Memorability.
-UX: Satisfaction, enjoyment, engagement, emotional fulfillment.
+1.1 Direct manipulation interaction is characterized by:
+a. Typing commands
+b. Swiping or dragging objects
+c. Talking to a chatbot
+d. Navigating menus
+Answer: b
 
-Trade-offs: balance efficiency with enjoyment based on context.` },
-    { id: "ch5_4", title: "5.4 Design Principles Applied", content: `DESIGN PRINCIPLES SUMMARY: Visibility, Feedback, Constraints, Consistency, Affordance.
+1.2 Which interaction type involves dialogue with the system?
+a. Instructing
+b. Conversing
+c. Manipulating
+d. Exploring
+Answer: b
 
-CS Application exam scenario: buttons look clickable (affordance), clear navigation (visibility), confirmation messages (feedback), consistent icons, disabled invalid options (constraints).` },
-    { id: "ch5_5", title: "5.5 Key Takeaways", content: `CHAPTER 5 KEY POINTS: instructing, conversing, manipulating, exploring; interface metaphors reduce learning curve; usability vs UX goals; design principles guide evaluation.` }
-  ];
+1.3 An example of an interface metaphor is:
+a. Loading spinner
+b. Shopping cart
+c. Error message
+d. Tooltip
+Answer: b
 
+1.4 Which UX goal focuses on emotional fulfillment?
+a. Efficiency
+b. Safety
+c. Enjoyment
+d. Learnability
+Answer: c
+
+1.5 Constraints in design are used to:
+a. Increase complexity
+b. Prevent user errors
+c. Improve aesthetics only
+d. Replace navigation
+Answer: b
+
+Question 2: Short Answer
+
+2.1 Name four types of interaction.
+Answer: Instructing, Conversing, Manipulating, Exploring
+
+2.2 Explain why interface metaphors are important.
+Answer: They help users understand the system by relating it to familiar objects, reducing learning time.
+
+2.3 Give one example of balancing usability and UX.
+Answer: A mobile app may simplify a task (usability) while adding animations or gamification to make it enjoyable (UX).
+
+2.4 Provide one example of applying feedback in design.
+Answer: Showing a confirmation message after a user submits a form.
+
+Question 3: Scenario-Based
+
+Scenario: An online shopping app allows users to browse products, add to cart, check out, and interact with a support chatbot.
+
+3.1 Identify the interaction types used in this app.
+Answer: Instructing (adding to cart), Exploring (browsing products), Conversing (support chatbot).
+
+3.2 Suggest one interface metaphor the app could use.
+Answer: Shopping cart icon representing selected items.
+
+3.3 Explain how design principles improve the shopping experience.
+Answer: Visibility: clear menu and categories; Feedback: messages for added items; Constraints: disabling checkout for empty cart; Consistency: uniform product display; Affordance: buttons look clickable.
+
+Question 4: Theory
+
+4.1 What is the main difference between usability and UX?
+Answer: Usability focuses on functional performance (efficiency, effectiveness), UX focuses on emotions and overall satisfaction.
+
+4.2 Why is exploring an important interaction type?
+Answer: It allows users to discover information, understand features, and learn through navigation rather than instructions.
+
+4.3 Give one benefit of using metaphors in interface design.
+Answer: Reduces learning curve and leverages prior knowledge to make the system intuitive.
+`} ]
   // ========== CHAPTER 6: EVALUATION & PROTOTYPING ==========
   const chapter6Topics = [
-    { id: "ch6_1", title: "6.1 What is Evaluation?", content: `EVALUATION IN INTERACTION DESIGN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { id: "ch6_1", title: "6.1 What is Evaluation?", content: `Evaluation in interaction design is the process of assessing product quality and user experience throughout the design process.
 
-Evaluation: assessing product quality and user experience throughout design process.
+Purpose of evaluation:
+Identify usability problems
+Validate design decisions
+Measure success against goals
+Iteratively improve the product` },
+  { id: "ch6_2", title: "6.2 Evaluation Approaches", content: `Three main approaches:
+User Testing: Users perform tasks; measure time, errors, and satisfaction.
+Heuristic Evaluation: Experts evaluate the system against usability principles.
+Field Studies: Observe users in natural context for ecological validity.
 
-Why evaluate:
-• Identify usability problems
-• Validate design decisions
-• Measure against goals
-• Improve product iteratively` },
-    { id: "ch6_2", title: "6.2 Evaluation Approaches", content: `THREE MAIN APPROACHES
-1. USER TESTING: users perform tasks; measure time, errors, satisfaction.
-2. HEURISTIC EVALUATION: experts evaluate against usability principles.
-3. FIELD STUDIES: observe users in natural context; ecological validity.
-A/B TESTING: compare two versions with real users.` },
-    { id: "ch6_3", title: "6.3 Usability Testing Methods", content: `Think-Aloud Protocol: users verbalize thoughts.
-Remote Testing: users participate from own locations.
-Metrics: task success rate, time on task, error rate, satisfaction (SUS).
+A/B Testing: Compare two versions with real users to determine better design.` },
+  { id: "ch6_3", title: "6.3 Usability Testing Methods", content: `Think-Aloud Protocol: Users verbalize thoughts while performing tasks.
+Remote Testing: Users participate from their own locations.
 
-Formative evaluation: during design to improve.
-Summative evaluation: after completion to assess success.` },
-    { id: "ch6_4", title: "6.4 Prototyping", content: `PROTOTYPING
-Low-fidelity: paper sketches, wireframes; quick, cheap, encourages iteration.
-High-fidelity: interactive, functional, realistic feedback; more time-consuming.
-Horizontal prototypes: broad functionality, shallow depth.
-Vertical prototypes: deep functionality for specific feature.
+Metrics: Task success rate, time on task, error rate, satisfaction (e.g., SUS).
 
-Goal: get feedback early, reduce risk, validate design direction.` },
-    { id: "ch6_5", title: "6.5 Heuristic Evaluation (Nielsen)", content: `NIELSEN'S 10 USABILITY HEURISTICS
+Formative Evaluation: During design to improve the product.
+Summative Evaluation: After completion to assess overall success.` },
+  { id: "ch6_4", title: "6.4 Prototyping", content: `Prototyping helps get early feedback and validate design direction.
+
+Low-fidelity: Paper sketches, wireframes; fast, cheap, encourages iteration.
+High-fidelity: Interactive, functional, realistic feedback; more time-consuming.
+Horizontal prototypes: Broad functionality, shallow depth.
+Vertical prototypes: Deep functionality for a specific feature.` },
+  { id: "ch6_5", title: "6.5 Heuristic Evaluation (Nielsen)", content: `Nielsen's 10 Usability Heuristics:
 1. Visibility of system status
 2. Match between system and real world
 3. User control and freedom
@@ -524,88 +993,132 @@ Goal: get feedback early, reduce risk, validate design direction.` },
 6. Recognition rather than recall
 7. Flexibility and efficiency of use
 8. Aesthetic and minimalist design
-9. Help users recognize, diagnose, recover from errors
+9. Help users recognize, diagnose, and recover from errors
 10. Help and documentation
 
-3-5 experts identify 60-75% of usability problems.` },
-    { id: "ch6_6", title: "6.6 Evaluation in Agile & Continuous UX", content: `EVALUATION IN AGILE: Sprint reviews, prototype testing each iteration, analytics.
+3-5 experts can identify 60-75% of usability problems using heuristics.` },
+  { id: "ch6_6", title: "6.6 Evaluation in Agile & Continuous UX", content: `In Agile: Sprint reviews, prototype testing each iteration, and analytics are used for evaluation.
 
-Lean UX: early, frequent user contact.
+Lean UX: Early and frequent user contact to gather feedback.
+Continuous UX: Use analytics, session recordings, customer feedback, and NPS to iteratively improve the product.
 
-Continuous UX: analytics, session recordings, customer feedback, NPS.
+Goal: Close the feedback loop and enable data-driven design improvements.` },
+  { id: "ch6_7", title: "6.7 Key Takeaways", content: `CHAPTER 6 KEY POINTS:
+User testing, heuristic evaluation, and field studies.
+Low- to high-fidelity prototyping.
+Nielsen's 10 usability heuristics.
+Formative vs summative evaluation.
+Continuous evaluation in Agile and Lean UX.` },
+  { id: "ch6_8", title: "6.8 Exam-Style Questions and Answers", content: `
+Question 1: Multiple Choice
 
-Goal: close feedback loop; data-driven iteration.` },
-    { id: "ch6_7", title: "6.7 Key Takeaways", content: `CHAPTER 6 KEY POINTS: user testing, heuristic evaluation, field studies; low to high fidelity prototyping; Nielsen's 10 heuristics; formative vs summative evaluation; continuous evaluation in agile.` }
-  ];
+1.1 Which evaluation method observes users in their natural environment?
+a. User testing
+b. Heuristic evaluation
+c. Field study
+d. A/B testing
+Answer: c
 
+1.2 Formative evaluation is performed:
+a. After product completion
+b. During design
+c. Only in Agile
+d. By experts only
+Answer: b
+
+1.3 Which of Nielsen's heuristics prevents user errors?
+a. Consistency and standards
+b. Error prevention
+c. Recognition rather than recall
+d. Visibility of system status
+Answer: b
+
+1.4 Low-fidelity prototypes are:
+a. Expensive and interactive
+b. Paper sketches or wireframes
+c. Fully functional
+d. Vertical only
+Answer: b
+
+1.5 Continuous UX focuses on:
+a. One-time evaluation
+b. Early user contact only
+c. Analytics, feedback, and iterative improvements
+d. Expert heuristics only
+Answer: c
+
+Question 2: Short Answer
+
+2.1 Name three evaluation approaches.
+Answer: User testing, Heuristic evaluation, Field studies
+
+2.2 Explain the difference between formative and summative evaluation.
+Answer: Formative is during design to improve the product; Summative is after completion to assess success.
+
+2.3 Give one reason to prototype early.
+Answer: To get feedback early and reduce design risk.
+
+2.4 Give one benefit of heuristic evaluation.
+Answer: Experts can quickly identify most usability problems without real users.
+
+Question 3: Scenario-Based
+
+Scenario: A team designs a new e-learning platform. They want to ensure it is usable and engaging.
+
+3.1 Suggest one method for formative evaluation.
+Answer: User testing with students while the platform is still in prototype stage.
+
+3.2 Suggest one method for summative evaluation.
+Answer: SUS survey after platform launch to assess overall satisfaction.
+
+3.3 How can continuous UX help after launch?
+Answer: Collect analytics and feedback to iteratively improve navigation, content, and features.
+
+Question 4: Theory
+
+4.1 Explain why horizontal prototypes are useful.
+Answer: They show a broad set of features, helping stakeholders see overall structure and navigation.
+
+4.2 Explain why vertical prototypes are useful.
+Answer: They allow deep testing of a specific feature or workflow for functionality and performance.
+
+4.3 Name two metrics commonly used in usability testing.
+Answer: Task success rate, time on task, error rate, or satisfaction.
+`} ]
   // ========== CHAPTER 7: DATA GATHERING, REQUIREMENTS & ANALYSIS ==========
-  const chapter7Topics = [
-    { id: "ch7_1", title: "7.1 What are Requirements?", content: `REQUIREMENTS IN INTERACTION DESIGN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Requirements: statement about intended product; what it should do and how it should behave.
+const chapter7Topics = [
+  { id: "ch7_1", title: "7.1 What are Requirements?", content: `Requirements in interaction design are statements about the intended product: what it should do and how it should behave.
 
 Types of requirements:
-• Functional: what the system should do (features, functions)
-• Non-functional: constraints, usability, performance, security, reliability
-• Data requirements: types, structure, volume of data
-• Environmental: physical, social, organizational context
-• User characteristics: abilities, skills, preferences
+Functional: what the system should do (features, functions)
+Non-functional: constraints, usability, performance, security, reliability
+Data requirements: types, structure, and volume of data
+Environmental: physical, social, organizational context
+User characteristics: abilities, skills, preferences
 
-Sources: stakeholders, existing systems, domain experts, competitors, standards.` },
-    { id: "ch7_2", title: "7.2 Data Gathering Methods", content: `DATA GATHERING METHODS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sources of requirements: stakeholders, existing systems, domain experts, competitors, standards` },
+  { id: "ch7_2", title: "7.2 Data Gathering Methods", content: `Common methods to gather requirements:
 
-1. INTERVIEWS
-• Structured: fixed questions, consistent
-• Semi-structured: flexible, follow-up questions
-• Unstructured: exploratory, rich insights
-• Focus groups: group discussion, multiple perspectives
+Interviews: structured, semi-structured, unstructured, focus groups
+Observation: direct, participant, ethnography
+Questionnaires & Surveys: Likert scales, multiple choice, open-ended, online tools
+Document Analysis: user manuals, help requests, analytics logs
+Diaries & Experience Sampling: users record activities over time
 
-2. OBSERVATION
-• Direct observation: watch users in context
-• Participant observation: researcher engages in activity
-• Ethnography: deep immersion in user environment
-
-3. QUESTIONNAIRES & SURVEYS
-• Quantitative data from large samples
-• Likert scales, multiple choice, open-ended
-• Online tools (Google Forms, SurveyMonkey)
-
-4. DOCUMENT ANALYSIS
-• User manuals, help requests, existing documentation
-• Analytics logs, usage data
-
-5. DIARIES & EXPERIENCE SAMPLING
-• Users record activities over time
-• Captures context and patterns
-
-Triangulation: use multiple methods for comprehensive understanding.` },
-    { id: "ch7_3", title: "7.3 Requirements Analysis & Modeling", content: `REQUIREMENTS ANALYSIS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Process: organize, interpret, and prioritize gathered data.
+Triangulation: use multiple methods to ensure comprehensive understanding` },
+  { id: "ch7_3", title: "7.3 Requirements Analysis & Modeling", content: `Requirements analysis organizes, interprets, and prioritizes gathered data.
 
 Techniques:
-• Affinity diagramming: group related findings
-• Personas: archetypal user profiles (characteristics, goals, behaviors)
-• Scenarios: stories of users interacting with product
-• Use cases: describe interaction sequences
-• User stories: "As a [role], I want [goal], so that [benefit]"
-• Task analysis: break down user activities
+Affinity diagrams: group related findings
+Personas: archetypal user profiles (characteristics, goals, behaviors)
+Scenarios: stories of users interacting with the product
+Use cases: describe interaction sequences
+User stories: "As a [role], I want [goal], so that [benefit]"
+Task analysis: break down user activities
 
-Persona components:
-• Name, photo, demographics
-• Goals and motivations
-• Pain points and frustrations
-• Skills and expertise
-• Environment and context
-
-Scenarios: detailed narratives of tasks in context; help validate requirements.` },
-    { id: "ch7_4", title: "7.4 Hierarchical Task Analysis (HTA)", content: `HIERARCHICAL TASK ANALYSIS (HTA)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-HTA breaks tasks into subtasks in hierarchy.
+Personas include: name, photo, demographics, goals, pain points, skills, environment` },
+  { id: "ch7_4", title: "7.4 Hierarchical Task Analysis (HTA)", content: `HTA breaks tasks into subtasks in a hierarchy.
 
 Structure:
 0. Main task goal
@@ -615,76 +1128,126 @@ Structure:
   2. Plan 2
     2.1. Subtask 1
 
-Plans: specify order or conditions (do 1.1, then 1.2; if error, do 1.3).
+Plans specify order or conditions.
 
 Benefits:
-• Identifies all user activities
-• Reveals task complexity
-• Informs interface structure
-• Helps design error recovery
+Identifies all user activities
+Reveals task complexity
+Informs interface structure
+Helps design error recovery
 
-Example: "Make coffee"
+Example: Make coffee
 0. Make coffee
-  1. Get coffee (plan: 1.1 then 1.2)
-    1.1. Open cupboard
-    1.2. Take coffee jar
-  2. Boil water (plan: 2.1 then 2.2)
-    2.1. Fill kettle
-    2.2. Switch on` },
-    { id: "ch7_5", title: "7.5 Prioritizing Requirements", content: `PRIORITIZING REQUIREMENTS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Get coffee (1.1 then 1.2)
+    1.1 Open cupboard
+    1.2 Take coffee jar
+  2. Boil water (2.1 then 2.2)
+    2.1 Fill kettle
+    2.2 Switch on` },
+  { id: "ch7_5", title: "7.5 Prioritizing Requirements", content: `Not all requirements are equal; prioritization ensures resources are used effectively.
 
-Not all requirements equal; must prioritize within constraints.
+MOSCOW Method: Must have, Should have, Could have, Won't have
 
-MOSCOW Method:
-• Must have: critical for success
-• Should have: important but not vital
-• Could have: nice to have if time/resources permit
-• Won't have: explicitly excluded for this release
+Kano Model: Basic needs (expected), Performance needs (more is better), Excitement needs (unexpected delights)
 
-Kano Model:
-• Basic needs: expected; absence causes dissatisfaction
-• Performance needs: linear satisfaction; more is better
-• Excitement needs: unexpected delights; create satisfaction
+Factors: business value, user value, technical feasibility, cost, risk, dependencies` },
+  { id: "ch7_6", title: "7.6 From Requirements to Design", content: `Requirements guide design by informing:
+User tasks and workflows
+Functional features
+Usability goals: effectiveness, efficiency, satisfaction
+UX goals: engaging, motivating, pleasurable
+Technical constraints and accessibility needs
 
-Factors: business value, user value, technical feasibility, cost, risk, dependencies.` },
-    { id: "ch7_6", title: "7.6 From Requirements to Design", content: `FROM REQUIREMENTS TO DESIGN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Traceability ensures design aligns with requirements.
+Iterative refinement acknowledges that requirements evolve.
+Validation verifies the design meets requirements through inspection, testing, and evaluation` },
+  { id: "ch7_7", title: "7.7 Key Takeaways", content: `Chapter 7 key points:
+Requirements types: functional, non-functional, data, environmental, user characteristics
+Data gathering: interviews, observation, questionnaires, document analysis, diaries
+Triangulation ensures comprehensive understanding
+Analysis techniques: affinity diagrams, personas, scenarios, use cases, user stories
+Hierarchical Task Analysis (HTA) structures tasks with plans
+Prioritization: MOSCOW and Kano models
+Requirements drive design; traceability ensures alignment
+Requirements evolve iteratively; validation confirms design meets needs
 
-Requirements inform:
-• User tasks and workflows
-• Functional features
-• Usability goals (effectiveness, efficiency, satisfaction)
-• UX goals (engaging, motivating, pleasurable)
-• Technical constraints
-• Accessibility needs
+Requirements gathering principles: focus on users and goals, observe actions not just words, involve stakeholders, understand context, iterate and refine` },
+  { id: "ch7_8", title: "7.8 Exam-Style Questions and Answers", content: `
+Question 1: Multiple Choice
 
-Traceability: ensure design decisions align with requirements.
+1.1 Which type of requirement defines system performance, security, or usability constraints?
+a. Functional
+b. Non-functional
+c. Data
+d. Environmental
+Answer: b
 
-Iterative refinement: requirements evolve as understanding deepens.
+1.2 Triangulation in data gathering means:
+a. Using one method only
+b. Using multiple methods for comprehensive understanding
+c. Prioritizing requirements
+d. Creating user personas
+Answer: b
 
-Validation: verify that design meets requirements (inspection, evaluation, user testing).
+1.3 MOSCOW 'Could have' requirements mean:
+a. Critical for success
+b. Nice to have if resources allow
+c. Explicitly excluded
+d. Important but not vital
+Answer: b
 
-Key insight: Requirements are not fixed; they emerge and refine throughout design process.` },
-    { id: "ch7_7", title: "7.7 Key Takeaways: Requirements", content: `CHAPTER 7 KEY POINTS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.4 Kano model 'Excitement needs' are:
+a. Expected and basic
+b. Unexpected features that delight users
+c. Linear performance features
+d. Technical constraints
+Answer: b
 
-✓ Requirements: functional, non-functional, data, environmental, user characteristics
-✓ Data gathering methods: interviews, observation, questionnaires, document analysis, diaries
-✓ Triangulation: combine multiple methods for comprehensive understanding
-✓ Analysis techniques: affinity diagrams, personas, scenarios, use cases, user stories
-✓ Hierarchical Task Analysis (HTA): breaks tasks into structured hierarchy with plans
-✓ Prioritization: MOSCOW (Must/Should/Could/Won't), Kano model (basic, performance, excitement)
-✓ Requirements drive design; traceability ensures alignment
-✓ Requirements evolve iteratively; validation confirms design meets needs
+1.5 In HTA, plans specify:
+a. Task hierarchy only
+b. Task order and conditions
+c. Personas
+d. User stories
+Answer: b
 
-REQUIREMENTS GATHERING PRINCIPLES
-• Focus on users and their goals
-• Observe what people do, not just what they say
-• Involve stakeholders throughout
-• Understand context of use
-• Be prepared to iterate and refine` }
-  ];
+Question 2: Short Answer
+
+2.1 Name three data gathering methods.
+Answer: Interviews, observation, questionnaires/surveys (or document analysis, diaries)
+
+2.2 Give one purpose of requirements analysis.
+Answer: To organize, interpret, and prioritize gathered data
+
+2.3 What is a persona?
+Answer: A fictional archetype representing key user characteristics, goals, and behaviors
+
+2.4 Give one benefit of HTA.
+Answer: Reveals task complexity and informs interface structure
+
+Question 3: Scenario-Based
+
+Scenario: A team is designing a mobile banking app.
+
+3.1 Suggest one method to gather user requirements.
+Answer: Conduct interviews with target users to understand tasks and pain points
+
+3.2 Suggest one technique to model requirements.
+Answer: Create personas and scenarios to illustrate typical user interactions
+
+3.3 Using MOSCOW, name a requirement that could be 'Must have'.
+Answer: Secure login authentication
+
+3.4 Using Kano, give an example of an excitement need.
+Answer: Personalized dashboard themes or gamified achievements
+
+Question 4: Theory
+
+4.1 Explain why traceability is important in requirements.
+Answer: Ensures design decisions align with original requirements and goals
+
+4.2 Explain why requirements evolve iteratively.
+Answer: As understanding of users and context improves, requirements may change and need refinement
+`} ]
 
   // Combine all topics
   const allTopics = [
