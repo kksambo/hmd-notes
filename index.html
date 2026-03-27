@@ -1087,167 +1087,420 @@ Answer: Task success rate, time on task, error rate, or satisfaction.
 `} ]
   // ========== CHAPTER 7: DATA GATHERING, REQUIREMENTS & ANALYSIS ==========
 
-const chapter7Topics = [
-  { id: "ch7_1", title: "7.1 What are Requirements?", content: `Requirements in interaction design are statements about the intended product: what it should do and how it should behave.
+const chapter7Interfaces = [
+  {
+    id: "ch7i_1",
+    title: "7.1 Overview of Interfaces",
+    content: `Interfaces are the means through which users interact with systems.
 
-Types of requirements:
-Functional: what the system should do (features, functions)
-Non-functional: constraints, usability, performance, security, reliability
-Data requirements: types, structure, and volume of data
-Environmental: physical, social, organizational context
-User characteristics: abilities, skills, preferences
+Key goals:
+- Understand different interface types
+- Identify design and research considerations
+- Understand natural user interfaces (NUIs)
+- Choose appropriate interfaces for tasks
 
-Sources of requirements: stakeholders, existing systems, domain experts, competitors, standards` },
-  { id: "ch7_2", title: "7.2 Data Gathering Methods", content: `Common methods to gather requirements:
+There are 22 interface types including command, GUI, mobile, VR, AR, voice, and more.
 
-Interviews: structured, semi-structured, unstructured, focus groups
-Observation: direct, participant, ethnography
-Questionnaires & Surveys: Likert scales, multiple choice, open-ended, online tools
-Document Analysis: user manuals, help requests, analytics logs
-Diaries & Experience Sampling: users record activities over time
+Choosing an interface depends on:
+- Task
+- Users
+- Context
+- Cost
+- Robustness`
+  },
 
-Triangulation: use multiple methods to ensure comprehensive understanding` },
-  { id: "ch7_3", title: "7.3 Requirements Analysis & Modeling", content: `Requirements analysis organizes, interprets, and prioritizes gathered data.
+  {
+    id: "ch7i_2",
+    title: "7.2 Command Line Interfaces",
+    content: `Command line interfaces require users to type commands (e.g., ls).
 
-Techniques:
-Affinity diagrams: group related findings
-Personas: archetypal user profiles (characteristics, goals, behaviors)
-Scenarios: stories of users interacting with the product
-Use cases: describe interaction sequences
-User stories: "As a [role], I want [goal], so that [benefit]"
-Task analysis: break down user activities
+Characteristics:
+- Fast, precise, efficient
+- Requires memorization of commands
+- High learning curve
 
-Personas include: name, photo, demographics, goals, pain points, skills, environment` },
-  { id: "ch7_4", title: "7.4 Hierarchical Task Analysis (HTA)", content: `HTA breaks tasks into subtasks in a hierarchy.
+Design considerations:
+- Consistency in command naming
+- Simple structure and syntax
 
-Structure:
-0. Main task goal
-  1. Plan 1
-    1.1. Subtask 1
-    1.2. Subtask 2
-  2. Plan 2
-    2.1. Subtask 1
+Used in:
+- Programming
+- Web scripting
+- Tools like Overleaf`
+  },
 
-Plans specify order or conditions.
+  {
+    id: "ch7i_3",
+    title: "7.3 Graphical User Interfaces (GUIs)",
+    content: `GUIs use visual elements for interaction (WIMP model).
+
+Components:
+- Windows: movable, resizable views
+- Icons: visual representations of actions/objects
+- Menus: selectable options
+- Pointer: mouse-controlled cursor
+
+Advantages:
+- Easy to learn
+- Visual and intuitive
+
+Challenges:
+- Managing multiple windows
+- Finding items quickly
+
+Menu types:
+- Flat
+- Drop-down
+- Pop-up
+- Contextual
+- Collapsible
+- Mega menus
+
+Design principles:
+- Simplicity
+- Grouping
+- Spacing
+- Clear labeling`
+  },
+
+  {
+    id: "ch7i_4",
+    title: "7.4 Icon Design",
+    content: `Icons represent actions or objects visually.
+
+Types:
+- Similar: looks like object (file icon)
+- Analogical: symbolic (scissors = cut)
+- Arbitrary: abstract (X = delete)
+
+Key points:
+- Easier to remember than text
+- Should be clear and meaningful
+- Can include labels or hover hints
+
+Modern icons:
+- Flat, 3D, animated, colorful
+- Emotionally engaging`
+  },
+
+  {
+    id: "ch7i_5",
+    title: "7.5 Multimedia Interfaces",
+    content: `Combine multiple media types:
+- Text
+- Graphics
+- Audio
+- Video
+- Animation
 
 Benefits:
-Identifies all user activities
-Reveals task complexity
-Informs interface structure
-Helps design error recovery
+- Engaging and interactive
+- Improves learning and understanding
 
-Example: Make coffee
-0. Make coffee
-  1. Get coffee (1.1 then 1.2)
-    1.1 Open cupboard
-    1.2 Take coffee jar
-  2. Boil water (2.1 then 2.2)
-    2.1 Fill kettle
-    2.2 Switch on` },
-  { id: "ch7_5", title: "7.5 Prioritizing Requirements", content: `Not all requirements are equal; prioritization ensures resources are used effectively.
+Challenges:
+- Users may skip important content
+- Hard to manage multiple elements
 
-MOSCOW Method: Must have, Should have, Could have, Won't have
+Best for:
+- Learning apps
+- Games
+- Interactive content
 
-Kano Model: Basic needs (expected), Performance needs (more is better), Excitement needs (unexpected delights)
+Design tips:
+- Include simulations and quizzes
+- Support exploration`
+  },
 
-Factors: business value, user value, technical feasibility, cost, risk, dependencies` },
-  { id: "ch7_6", title: "7.6 From Requirements to Design", content: `Requirements guide design by informing:
-User tasks and workflows
-Functional features
-Usability goals: effectiveness, efficiency, satisfaction
-UX goals: engaging, motivating, pleasurable
-Technical constraints and accessibility needs
+  {
+    id: "ch7i_6",
+    title: "7.6 Virtual Reality (VR)",
+    content: `VR creates immersive 3D environments.
 
-Traceability ensures design aligns with requirements.
-Iterative refinement acknowledges that requirements evolve.
-Validation verifies the design meets requirements through inspection, testing, and evaluation` },
-  { id: "ch7_7", title: "7.7 Key Takeaways", content: `Chapter 7 key points:
-Requirements types: functional, non-functional, data, environmental, user characteristics
-Data gathering: interviews, observation, questionnaires, document analysis, diaries
-Triangulation ensures comprehensive understanding
-Analysis techniques: affinity diagrams, personas, scenarios, use cases, user stories
-Hierarchical Task Analysis (HTA) structures tasks with plans
-Prioritization: MOSCOW and Kano models
-Requirements drive design; traceability ensures alignment
-Requirements evolve iteratively; validation confirms design meets needs
+Features:
+- Sense of presence
+- Interactive navigation
+- First-person or third-person views
 
-Requirements gathering principles: focus on users and goals, observe actions not just words, involve stakeholders, understand context, iterate and refine` },
-  { id: "ch7_8", title: "7.8 Exam-Style Questions and Answers", content: `
+Applications:
+- Gaming
+- Training (simulators)
+- Therapy (phobias)
+- Education
+
+Challenges:
+- Motion sickness
+- Hardware discomfort
+- Navigation complexity
+
+Design considerations:
+- Realism level
+- Interaction methods (controllers, gestures)`
+  },
+
+  {
+    id: "ch7i_7",
+    title: "7.7 Web Interfaces",
+    content: `Web interfaces focus on navigation and visual appeal.
+
+Key aspects:
+- Structure information clearly
+- Make pages attractive
+- Ensure usability
+
+Concepts:
+- Breadcrumbs: show navigation path
+- Responsive design: adapts to screen size
+- Infinite scrolling: continuous content
+
+Challenges:
+- Balance usability vs aesthetics
+- Avoid intrusive ads
+
+Design questions:
+1. Where am I?
+2. Where can I go?
+3. What’s here?`
+  },
+
+  {
+    id: "ch7i_8",
+    title: "7.8 Mobile Interfaces",
+    content: `Mobile interfaces are used on handheld devices.
+
+Features:
+- Touch-based interaction
+- Used on the move
+
+Challenges:
+- Small screens
+- Finger accuracy
+
+Design considerations:
+- Large touch targets (minimum 44x44)
+- Use Fitts' Law for spacing
+- Avoid clutter
+
+Examples:
+- Smartphones
+- Tablets
+- Smartwatches`
+  },
+
+  {
+    id: "ch7i_9",
+    title: "7.9 Voice Interfaces",
+    content: `Voice interfaces allow interaction through speech.
+
+Examples:
+- Virtual assistants (Alexa)
+- Chatbots
+
+Types:
+- Directed (system controls conversation)
+- Flexible (user controls)
+
+Features:
+- Barge-in (interrupt system)
+
+Benefits:
+- Accessible (visually impaired users)
+
+Challenges:
+- Misunderstanding speech
+- Conversation design
+
+Design tips:
+- Provide clear prompts
+- Help users recover from errors`
+  },
+
+  {
+    id: "ch7i_10",
+    title: "7.10 Touch & Gesture Interfaces",
+    content: `Touch interfaces use fingers for interaction.
+
+Gestures:
+- Tap
+- Swipe
+- Pinch
+- Drag
+
+Touchless interfaces:
+- Use hand/body movements (e.g., Kinect)
+
+Benefits:
+- Natural and direct interaction
+
+Challenges:
+- Learning gestures
+- Recognition accuracy
+
+Design considerations:
+- Keep gestures simple
+- Ensure accurate detection`
+  },
+
+  {
+    id: "ch7i_11",
+    title: "7.11 Haptic & Multimodal Interfaces",
+    content: `Haptic interfaces provide touch feedback (vibration).
+
+Uses:
+- Notifications
+- Simulating touch
+
+Multimodal interfaces combine:
+- Voice
+- Touch
+- Vision
+
+Benefits:
+- More natural interaction
+- Flexible and efficient
+
+Challenges:
+- Complex to design
+- Hard to calibrate multiple inputs`
+  },
+
+  {
+    id: "ch7i_12",
+    title: "7.12 Advanced Interfaces",
+    content: `Includes emerging and innovative interfaces:
+
+Types:
+- Augmented Reality (AR): overlays digital on real world
+- Wearables: smart clothing/devices
+- Robots & drones: physical interaction
+- Brain-computer interfaces (BCI): control via brain signals
+- Smart interfaces: context-aware systems
+- Shape-changing interfaces: physical transformations
+- Tangible interfaces: physical objects control digital systems
+- Holographic interfaces: 3D projections
+
+Key concerns:
+- Ethics (privacy, data use)
+- Usability
+- Comfort
+- Accuracy`
+  },
+
+  {
+    id: "ch7i_13",
+    title: "7.13 Shareable & Tangible Interfaces",
+    content: `Shareable interfaces:
+- Used by multiple users simultaneously
+- Examples: tabletops, smartboards
+
+Benefits:
+- Collaboration
+- Shared understanding
+
+Tangible interfaces:
+- Physical objects linked to digital actions
+
+Benefits:
+- Hands-on interaction
+- Enhances creativity and learning
+
+Design considerations:
+- Support collaboration
+- Clear mapping between action and effect`
+  },
+
+  {
+    id: "ch7i_14",
+    title: "7.14 Key Takeaways",
+    content: `- There are many interface types (22 types)
+- Each interface suits different tasks and users
+- GUIs and mobile interfaces are most common
+- New interfaces include AR, VR, and AI-driven systems
+- Design must consider usability, context, and users
+- Multimodal interaction is becoming more popular
+- Ethical concerns are increasing with smart systems
+
+Key principle:
+Choose the right interface for the right task`
+  },
+
+  {
+    id: "ch7i_15",
+    title: "7.15 Exam-Style Questions and Answers",
+    content: `
 Question 1: Multiple Choice
 
-1.1 Which type of requirement defines system performance, security, or usability constraints?
-a. Functional
-b. Non-functional
-c. Data
-d. Environmental
+1.1 Which interface uses typed commands?
+a. GUI
+b. Voice
+c. Command line
+d. Touch
+Answer: c
+
+1.2 Which interface combines multiple media types?
+a. VR
+b. Multimedia
+c. Mobile
+d. Command
 Answer: b
 
-1.2 Triangulation in data gathering means:
-a. Using one method only
-b. Using multiple methods for comprehensive understanding
-c. Prioritizing requirements
-d. Creating user personas
+1.3 Breadcrumbs are used for:
+a. Security
+b. Navigation
+c. Animation
+d. Input
 Answer: b
 
-1.3 MOSCOW 'Could have' requirements mean:
-a. Critical for success
-b. Nice to have if resources allow
-c. Explicitly excluded
-d. Important but not vital
+1.4 Which interface provides tactile feedback?
+a. Voice
+b. Haptic
+c. AR
+d. GUI
 Answer: b
 
-1.4 Kano model 'Excitement needs' are:
-a. Expected and basic
-b. Unexpected features that delight users
-c. Linear performance features
-d. Technical constraints
-Answer: b
-
-1.5 In HTA, plans specify:
-a. Task hierarchy only
-b. Task order and conditions
-c. Personas
-d. User stories
+1.5 Which interface overlays digital content on the real world?
+a. VR
+b. AR
+c. GUI
+d. Mobile
 Answer: b
 
 Question 2: Short Answer
 
-2.1 Name three data gathering methods.
-Answer: Interviews, observation, questionnaires/surveys (or document analysis, diaries)
+2.1 Name two interface types.
+Answer: GUI, Voice (or VR, AR, Mobile)
 
-2.2 Give one purpose of requirements analysis.
-Answer: To organize, interpret, and prioritize gathered data
+2.2 What is a GUI?
+Answer: A visual interface using windows, icons, menus, and pointers
 
-2.3 What is a persona?
-Answer: A fictional archetype representing key user characteristics, goals, and behaviors
+2.3 Give one benefit of VR.
+Answer: Provides immersive experience
 
-2.4 Give one benefit of HTA.
-Answer: Reveals task complexity and informs interface structure
+2.4 What is multimodal interaction?
+Answer: Using multiple input/output methods (e.g., voice + touch)
 
-Question 3: Scenario-Based
+Question 3: Scenario
 
-Scenario: A team is designing a mobile banking app.
+Scenario: Designing a fitness tracking app.
 
-3.1 Suggest one method to gather user requirements.
-Answer: Conduct interviews with target users to understand tasks and pain points
+3.1 Best interface?
+Answer: Mobile interface
 
-3.2 Suggest one technique to model requirements.
-Answer: Create personas and scenarios to illustrate typical user interactions
+3.2 Add advanced feature?
+Answer: Wearable integration
 
-3.3 Using MOSCOW, name a requirement that could be 'Must have'.
-Answer: Secure login authentication
-
-3.4 Using Kano, give an example of an excitement need.
-Answer: Personalized dashboard themes or gamified achievements
+3.3 Improve interaction?
+Answer: Use touch gestures and voice commands
 
 Question 4: Theory
 
-4.1 Explain why traceability is important in requirements.
-Answer: Ensures design decisions align with original requirements and goals
+4.1 Why is choosing the right interface important?
+Answer: Ensures usability and effectiveness for users and tasks
 
-4.2 Explain why requirements evolve iteratively.
-Answer: As understanding of users and context improves, requirements may change and need refinement
-`} ]
+4.2 Give one ethical concern in smart interfaces.
+Answer: Privacy and data collection
+`
+  }
+];
 
   // Combine all topics
   const allTopics = [
